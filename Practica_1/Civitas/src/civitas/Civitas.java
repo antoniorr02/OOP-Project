@@ -15,7 +15,9 @@ public class Civitas {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        
+        Casilla nueva = new Casilla(TipoCasilla.CALLE,"Reyes Católicos", 10, 20,5);
+        System.out.println(nueva.getPrecioAlquilerCompleto());
+        System.out.println(nueva);
     }
     
 }

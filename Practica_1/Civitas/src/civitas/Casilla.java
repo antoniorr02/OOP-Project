@@ -10,7 +10,7 @@ public class Casilla {
     private float precioCompra, precioEdificar, precioBaseAlquiler;
     private int numCasas, numHoteles;
     
-    public Parcela(TipoCasilla type, String name, float preciocompra, float precioedificar, float preciobasealquiler) {
+    public Casilla(TipoCasilla type, String name, float preciocompra, float precioedificar, float preciobasealquiler) {
         this.tipo = type;
         this.nombre = name;
         this.precioCompra = preciocompra;
@@ -18,6 +18,10 @@ public class Casilla {
         this.precioBaseAlquiler = preciobasealquiler;
         this.numCasas = 0;
         this.numHoteles = 0;        
+    }
+
+    public TipoCasilla getTipo() {
+        return tipo;
     }
     
     public String getNombre(){
@@ -54,5 +58,10 @@ public class Casilla {
         int inicio = numHoteles;
         numHoteles++;
         return inicio == numHoteles-1; // Comprobamos si el número de casas ha aumentado en 1.
+    }
+
+    public String toString(){
+        String cadena = nombre + ": Compra " +  precioCompra + ", Edificar " + precioEdificar + ", Alquiler base " + precioBaseAlquiler + ", Casas " + numCasas + ", Hoteles " + numHoteles;
+        return cadena;
     }
 }
