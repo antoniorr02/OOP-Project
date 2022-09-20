@@ -1,0 +1,1 @@
+public enum TipoSorpresa {PAGARCOBRAR, PORCASAHOTEL};
