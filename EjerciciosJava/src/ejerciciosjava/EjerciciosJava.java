@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
 package ejerciciosjava;
 
 /**
@@ -15,6 +11,8 @@ public class EjerciciosJava {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Parcela nueva = new Parcela("nombre", 10, 20,5);
+        System.out.println(nueva.getPrecioAlquilerCompleto());
     }
     
 }
