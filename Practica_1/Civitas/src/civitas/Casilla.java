@@ -10,7 +10,7 @@ public class Casilla {
     private float precioCompra, precioEdificar, precioBaseAlquiler;
     private int numCasas, numHoteles;
     
-    public Parcela(TipoCasilla type, String name, float preciocompra, float precioedificar, float preciobasealquiler) {
+    public Casilla(TipoCasilla type, String name, float preciocompra, float precioedificar, float preciobasealquiler) {
         this.tipo = type;
         this.nombre = name;
         this.precioCompra = preciocompra;
