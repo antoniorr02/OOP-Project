@@ -9,6 +9,10 @@ public class Casilla {
     private String nombre;
     private float precioCompra, precioEdificar, precioBaseAlquiler;
     private int numCasas, numHoteles;
+
+    float FACTORALQUILERCALLE = 1.0f;
+    float FACTORALQUILERCASA  = 1.0f;
+    float FACTORALQUILERHOTEL = 4.0f;
     
     public Casilla(TipoCasilla type, String name, float preciocompra, float precioedificar, float preciobasealquiler) {
         this.tipo = type;
@@ -45,7 +49,7 @@ public class Casilla {
     }
     
     public float getPrecioAlquilerCompleto() {
-        return precioBaseAlquiler * (1 + numCasas + numHoteles*4);
+        return precioBaseAlquiler * (FACTORALQUILERCALLE + numCasas*FACTORALQUILERCASA + numHoteles*FACTORALQUILERHOTEL);
     }
     
     public boolean construirCasa() {
