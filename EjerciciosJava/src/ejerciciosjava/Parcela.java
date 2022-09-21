@@ -51,6 +51,6 @@ public class Parcela {
     public boolean construirHotel() {
         int inicio = numHoteles;
         numHoteles++;
-        return inicio == numHoteles-1; // Comprobamos si el número de casas ha aumentado en 1.
+        return inicio == numHoteles-1; // Comprobamos si el número de hoteles ha aumentado en 1.
     }
 }
