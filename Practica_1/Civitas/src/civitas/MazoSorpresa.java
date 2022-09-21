@@ -19,24 +19,24 @@ public class MazoSorpresa {
         usadas = 0;
     }
 
-    protected MazoSorpresa() {
+    MazoSorpresa() {
         init();
         debug = false;
     }
 
-    protected MazoSorpresa(boolean d) {
+    MazoSorpresa(boolean d) {
         debug = d;
         init();
         if (debug) {}
             // ver como se informa en diario.
     }
 
-    protected void alMazo(Sorpresa s) {
+    void alMazo(Sorpresa s) {
         if(!barajada)
             sorpresas.add(s);
     }
 
-    protected Sorpresa siguiente() {
+    Sorpresa siguiente() {
         if ((!barajada || usadas == sorpresas.size()) && !debug) {
             Collections.shuffle(sorpresas);
             usadas = 0;

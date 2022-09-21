@@ -18,11 +18,11 @@ public class Dado {
         instance = null;
     }
 
-    protected Dado getInstance() { // Duda: Visibilidad de paquete == protected o public?
+    Dado getInstance() { // Duda: Visibilidad de paquete == o public?
         return instance;
     }
     
-    protected int tirar() {
+    int tirar() {
         if (debug)
             ultimoResultado = 1;
         else
@@ -30,15 +30,15 @@ public class Dado {
         return ultimoResultado;            
     }
     
-    protected int quienEmpieza(int n) {
+    int quienEmpieza(int n) {
         return random.nextInt((n-1)-0+1) + 0;
     }
 
-    protected void setDebug(boolean d) {
+    void setDebug(boolean d) {
         debug = d;
     }
 
-    protected int getUltimoResultado() {
+    int getUltimoResultado() {
         return ultimoResultado;
     }
 
