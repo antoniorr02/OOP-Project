@@ -10,39 +10,39 @@ class Parcela
         @numHoteles = 0
     end
 
-    def getNombre() 
+    def nombre
         @nombre
     end
 
-    def getPrecioCompra()
+    def precioCompra
         @precioCompra
     end
 
-    def getPrecioEdificar()
+    def precioEdificar
         @precioEdificar
     end
 
-    def getPrecioBaseAlquiler()
+    def precioBaseAlquiler
         @precioBaseAlquiler
     end
 
-    def getNumCasas()
+    def numCasas
         @numCasas
     end
 
-    def getNumHoteles()
+    def numHoteles
         @numHoteles
     end
 
-    def contruirCasa()
+    def contruir_casa
         @numCasas += 1
     end
 
-    def construirHotel()
+    def construir_hotel
         @numHoteles += 1
     end
 
-    def getPrecioAlquilerCompleto() 
+    def getPrecioAlquilerCompleto
         puts @precioBaseAlquiler * (1 + @numCasas*1 + @numHoteles*4)
     end
 end
