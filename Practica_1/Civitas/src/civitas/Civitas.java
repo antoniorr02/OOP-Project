@@ -13,15 +13,18 @@ public class Civitas {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    /* public static void main(String[] args) {
         // TODO code application logic here
         Casilla nueva = new Casilla(TipoCasilla.CALLE,"Reyes Católicos", 10, 20,5);
         System.out.println(nueva.getPrecioAlquilerCompleto());
         System.out.println(nueva);
-    }
+    } */
 
     public static void main(String[] args){
-        
+        for (int i =0 ; i <= 100; i++) {
+            
+        }
+
     }
     
 }
