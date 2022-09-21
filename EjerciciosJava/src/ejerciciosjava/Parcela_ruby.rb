@@ -1,6 +1,11 @@
 # encoding:utf-8
 
 class Parcela
+
+    @@FACTORALQUILERCALLE = 1.0
+    @@FACTORALQUILERCASA  = 1.0
+    @@FACTORALQUILERHOTEL = 4.0
+
     def initialize(nombre, precioCompra, precioEdificar, precioBaseAlquiler)
         @nombre = nombre
         @precioCompra = precioCompra
@@ -43,7 +48,7 @@ class Parcela
     end
 
     def getPrecioAlquilerCompleto
-        puts @precioBaseAlquiler * (1 + @numCasas*1 + @numHoteles*4)
+        puts @precioBaseAlquiler * (@@FACTORALQUILERCALLE + @numCasas*@@FACTORALQUILERCASA + @numHoteles*@@FACTORALQUILERHOTEL)
     end
 end
 
