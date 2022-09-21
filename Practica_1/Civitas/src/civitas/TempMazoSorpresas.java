@@ -13,18 +13,20 @@ public class TempMazoSorpresas {
         usadas = 0;
     }
     
-    protected TempMazoSorpresas(debug){ //comprobar lo del diario
+    protected TempMazoSorpresas(boolean d){ //comprobar lo del diario
+       debug = d;
         if(debug)
             return init();
         }
     }
 
     protected TempMazoSorpresas(){
-        return debug = false && init();
+        debug = false;
+        init();
     }
 
     void alMazo(Sorpresa s){
-
+        
     }
 
     Sorpresa siguiente(){

@@ -19,5 +19,9 @@ public class Civitas {
         System.out.println(nueva.getPrecioAlquilerCompleto());
         System.out.println(nueva);
     }
+
+    public static void main(String[] args){
+        
+    }
     
 }
