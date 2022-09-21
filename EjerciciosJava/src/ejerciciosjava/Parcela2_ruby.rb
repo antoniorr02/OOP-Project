@@ -1,6 +1,8 @@
 # encoding:utf-8
 
 class Parcela
+    attr_accessor :nombre, :precioCompra, :precioEdificar, :precioBaseAlquiler, :numCasas, :numHoteles
+
     def initialize(nombre, precioCompra, precioEdificar, precioBaseAlquiler)
         @nombre = nombre
         @precioCompra = precioCompra
@@ -8,30 +10,6 @@ class Parcela
         @precioBaseAlquiler = precioBaseAlquiler
         @numCasas = 0
         @numHoteles = 0
-    end
-
-    def nombre
-        @nombre
-    end
-
-    def precioCompra
-        @precioCompra
-    end
-
-    def precioEdificar
-        @precioEdificar
-    end
-
-    def precioBaseAlquiler
-        @precioBaseAlquiler
-    end
-
-    def numCasas
-        @numCasas
-    end
-
-    def numHoteles
-        @numHoteles
     end
 
     def construir_casa
