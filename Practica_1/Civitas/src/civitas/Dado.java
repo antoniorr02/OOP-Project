@@ -12,9 +12,10 @@ public class Dado {
     private Dado instance;
 
     private Dado() {
-        ultimoResultado = -1; // Comprobar si es válido
-        debug = false;         // El 0 se puede interpretar como un número de casillas a mover, no creo que afecte pero
-        instance = null;        //yo le dejaba el -1
+        ultimoResultado = -1; // Dejamos el -1, aún así creo que este dato se refiere a una tirada del dado
+        // Luego 0 tampoco sería una posible tirada, serán de 1 a 6.
+        debug = false;
+        instance = null;
     }
 
     protected Dado getInstance() { // Duda: Visibilidad de paquete == protected o public?
@@ -25,7 +26,7 @@ public class Dado {
         if (debug)
             ultimoResultado = 1;
         else
-            ultimoResultado = (int)(Math.random()*6+1); //random.nextInt(6-0+1) + 0; //Comprobar si sirve.
+            ultimoResultado = random.nextInt(6-1+1) + 1; //Comprobar si sirve. (Corregido antes iba de 0 a 6, ahora de 1 a 6)
         return ultimoResultado;            
     }
     
