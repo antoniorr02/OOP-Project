@@ -57,4 +57,8 @@ public class Parcela {
         numHoteles++;
         return inicio == numHoteles-1; // Comprobamos si el número de hoteles ha aumentado en 1.
     }
+
+    public boolean igualdadEstado(Parcela otraParcela) {
+        return (otraParcela.nombre.equals(nombre) && otraParcela.precioCompra == precioCompra && otraParcela.precioEdificar == precioEdificar && otraParcela.precioBaseAlquiler == precioBaseAlquiler && otraParcela.numCasas == numCasas && otraParcela.numHoteles == numHoteles);
+    }
 }
