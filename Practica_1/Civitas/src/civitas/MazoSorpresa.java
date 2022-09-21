@@ -28,7 +28,7 @@ public class MazoSorpresa {
         debug = d;
         init();
         if (debug) {}
-            // ver como se informa en diario.
+            Diario.getInstance().ocurreEvento("Modo debug");
     }
 
     void alMazo(Sorpresa s) {
