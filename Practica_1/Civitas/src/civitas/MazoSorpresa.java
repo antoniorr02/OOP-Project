@@ -1,6 +1,7 @@
 package civitas;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  *
@@ -37,10 +38,14 @@ public class MazoSorpresa {
 
     protected Sorpresa siguiente() {
         if ((!barajada || usadas == sorpresas.size()) && !debug) {
-            // BARAJAR?
+            Collections.shuffle(sorpresas);
             usadas = 0;
             barajada = true;
         }
-
+        usadas++;
+        Sorpresa seleccionada = sorpresas.get(0);
+        sorpresas.remove(0);
+        sorpresas.add(seleccionada);
+        return seleccionada;
     }
 }
