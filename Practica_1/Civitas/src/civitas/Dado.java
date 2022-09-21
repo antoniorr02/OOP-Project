@@ -12,9 +12,9 @@ public class Dado {
     private Dado instance;
 
     private Dado() {
-        ultimoResultado = 0; // Comprobar si es válido
-        debug = false;
-        instance = null;
+        ultimoResultado = -1; // Comprobar si es válido
+        debug = false;         // El 0 se puede interpretar como un número de casillas a mover, no creo que afecte pero
+        instance = null;        //yo le dejaba el -1
     }
 
     protected Dado getInstance() { // Duda: Visibilidad de paquete == protected o public?
@@ -25,7 +25,7 @@ public class Dado {
         if (debug)
             ultimoResultado = 1;
         else
-            ultimoResultado = random.nextInt(6-0+1) + 0; //Comprobar si sirve.
+            ultimoResultado = (int)(Math.random()*6+1); //random.nextInt(6-0+1) + 0; //Comprobar si sirve.
         return ultimoResultado;            
     }
     
