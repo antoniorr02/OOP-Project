@@ -9,16 +9,15 @@ public class Dado {
     private Random random = new Random();
     private int ultimoResultado;
     private boolean debug;
-    private Dado instance;
+    static final private Dado instance = new Dado();
 
     private Dado() {
         ultimoResultado = -1; // Dejamos el -1, aún así creo que este dato se refiere a una tirada del dado
         // Luego 0 tampoco sería una posible tirada, serán de 1 a 6.
         debug = false;
-        instance = null;
     }
 
-    Dado getInstance() { // Duda: Visibilidad de paquete == o public?
+    static public Dado getInstance() {
         return instance;
     }
     
@@ -26,7 +25,7 @@ public class Dado {
         if (debug)
             ultimoResultado = 1;
         else
-            ultimoResultado = random.nextInt(6-1+1) + 1; //Comprobar si sirve. (Corregido antes iba de 0 a 6, ahora de 1 a 6)
+            ultimoResultado = random.nextInt(6-1+1) + 1;
         return ultimoResultado;            
     }
     
