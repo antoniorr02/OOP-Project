@@ -56,13 +56,17 @@ public class Civitas {
             int cinco = 0;
             int seis = 0;
 
-            Dado.getInstance().setDebug(true);
+            Dado.getInstance().setDebug(false);
             Dado.getInstance().tirar();
             int n = Dado.getInstance().getUltimoResultado();
             switch(n){
-                case 1: if (uno == 0)
+                case 1: if (uno == 0){
                             System.out.println("En la tirada " + i + " ha salido un " + n);
                             uno = 1;
+                        }else{
+                            System.out.println("");
+                        }
+                            
                     break;
                 case 2: if (dos == 0)
                             System.out.println("En la tirada " + i + " ha salido un " + n);
