@@ -42,11 +42,6 @@ public class Civitas {
         }
         
         System.out.println("getUltimoResultado: " + Dado.getInstance().getUltimoResultado());
-
-        // No entiendo el enunciado del apartado 4 del main.
-        // El plan es tirar unas 50 veces e imprimir por pantalla un ejemplo de cada valor, es decir,
-        // que saldrían 6 mensajes de "en la tirada i(1-50) ha salido el valor n (1-6)", ya que solo se imprimen la 
-        // primera vez
         
             int uno = 0;
             int dos = 0;
