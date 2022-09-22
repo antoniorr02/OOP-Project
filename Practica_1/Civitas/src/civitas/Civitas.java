@@ -50,7 +50,7 @@ public class Civitas {
             int cinco = 0;
             int seis = 0;
 
-        for(int i = 0; i < 50; i++){
+        for(int i = 1; i < 20; i++){
             
             Dado.getInstance().setDebug(false);
             Dado.getInstance().tirar();
