@@ -47,8 +47,7 @@ public class Civitas {
         // El plan es tirar unas 50 veces e imprimir por pantalla un ejemplo de cada valor, es decir,
         // que saldrían 6 mensajes de "en la tirada i(1-50) ha salido el valor n (1-6)", ya que solo se imprimen la 
         // primera vez
-
-        for(int i = 0; i < 50; i++){
+        
             int uno = 0;
             int dos = 0;
             int tres = 0;
@@ -56,17 +55,15 @@ public class Civitas {
             int cinco = 0;
             int seis = 0;
 
+        for(int i = 0; i < 50; i++){
+            
             Dado.getInstance().setDebug(false);
             Dado.getInstance().tirar();
             int n = Dado.getInstance().getUltimoResultado();
             switch(n){
-                case 1: if (uno == 0){
+                case 1: if (uno == 0)
                             System.out.println("En la tirada " + i + " ha salido un " + n);
-                            uno = 1;
-                        }else{
-                            System.out.println("");
-                        }
-                            
+                            uno = 1;                            
                     break;
                 case 2: if (dos == 0)
                             System.out.println("En la tirada " + i + " ha salido un " + n);
