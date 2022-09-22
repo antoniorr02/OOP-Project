@@ -11,7 +11,7 @@ public class Tablero {
     private boolean porSalida;
         
     Tablero(){
-        casillas = null;
+        casillas = new ArrayList<Casilla>();
         porSalida = false;
     }
     
