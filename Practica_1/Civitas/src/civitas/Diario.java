@@ -15,8 +15,7 @@ public class Diario {
         return eventos;
     }
   
-  
-  
+    
   private Diario () {
     eventos = new ArrayList<>();
   }
