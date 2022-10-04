@@ -5,7 +5,7 @@ class Parcela
     @nombre
     @precioCompra
     @precioEdificar
-    @precioBaseAlquiler = 0
+    @precioBaseAlquiler
     @numCasas = 0
     @numHoteles = 0
 
