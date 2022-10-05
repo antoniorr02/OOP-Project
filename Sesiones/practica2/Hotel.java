@@ -8,6 +8,7 @@ public class Hotel {
     private Director director;
     private ArrayList<Reserva> reservas;
     private ArrayList<Empleado> empleados;
+    private ArrayList<Habitacion> habitaciones;
 
     public Hotel(String name, String city, int stars){
         NUM_HOTELES++;
@@ -17,6 +18,7 @@ public class Hotel {
         director = null;
         reservas = new ArrayList<Reserva>();
         empleados = new ArrayList<Empleado>();
+        habitaciones = new ArrayList<Habitacion>();
     }
 
     public static int getNUM_HOTELES() {
@@ -57,5 +59,18 @@ public class Hotel {
         return empleados.size();
     }
 
+    public void addHabitacion(int numero, int capacidad) {
+        Habitacion habitacion = new Habitacion(numero, capacidad);
+        habitaciones.add(habitacion);
+    }
 
+    public ArrayList<Integer> buscarHabitacionCapacidad(int capacidad) {
+        ArrayList<Integer> numeros = new ArrayList<Integer>();
+        for (int i = 0; i < habitaciones.size(); i++) {
+            if (habitaciones.get(i).getCapacidad() == capacidad) {
+                numeros.add(habitaciones.get(i).getNumero());
+            }
+        }
+        return numeros;
+    }
 }

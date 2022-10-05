@@ -23,5 +23,14 @@ public class Principal {
         Empleado empleado = new Empleado("José");
         hotel1.addEmpleado(empleado);
         System.out.println("Numero de trabajadores del hotel " + hotel1.getNombre() + ": " + hotel1.numEmpleados());
+
+        Habitacion habitacion1 = new Habitacion(1, 1);
+        hotel1.addHabitacion(1, 1);
+        hotel1.addHabitacion(2,2);
+        ArrayList<Integer> nhabitaciones = hotel1.buscarHabitacionCapacidad(1);
+        System.out.println("Los números de habitación con la capacidad buscada en el hotel " + hotel1.getNombre() + " son: ");
+        for (int i = 0; i < nhabitaciones.size(); i++) {
+            System.out.println(nhabitaciones.get(i));
+        }
     }
 }
