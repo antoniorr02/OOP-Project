@@ -7,6 +7,7 @@ public class Hotel {
     private int estrellas;
     private Director director;
     private ArrayList<Reserva> reservas;
+    private ArrayList<Empleado> empleados;
 
     public Hotel(String name, String city, int stars){
         NUM_HOTELES++;
@@ -41,4 +42,15 @@ public class Hotel {
     public ArrayList<Reserva> getReservas() {
         return reservas;
     }
+
+    public boolean addEmpleado(Empleado empleado) {
+        boolean insertado = false;
+        if(empleado.addTrabajo(this)) {
+            empleados.add(empleado);
+            insertado = true;
+        }
+        return insertado;
+    }
+
+
 }

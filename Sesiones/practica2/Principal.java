@@ -19,5 +19,8 @@ public class Principal {
         for (int i = 0; i < reservas.size(); i++) {
             System.out.println(reservas.get(i).getCliente().getNombre() + "     " + reservas.get(i).getFechaEntrada());
         }
+
+        Empleado empleado = new Empleado("José");
+        hotel1.addEmpleado(empleado);
     }
 }
