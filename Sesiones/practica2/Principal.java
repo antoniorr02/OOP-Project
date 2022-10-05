@@ -8,7 +8,7 @@ public class Principal {
         
         Director director = new Director("Pepe", 958123123);
         hotel1.setDirector(director);
-        System.out.println(hotel1.getDirector().getNombre());
+        System.out.println("Director del hotel 1: " + hotel1.getDirector().getNombre());
         
         Cliente cliente = new Cliente("123456789", "Antonio");
         Cliente cliente2 = new Cliente("123456789", "Blanca");
@@ -17,7 +17,7 @@ public class Principal {
         ArrayList<Reserva> reservas = hotel2.getReservas();
         System.out.println("Reservas: Nombre y fecha de reserva");
         for (int i = 0; i < reservas.size(); i++) {
-            System.out.println(reservas.get(i).getCliente().getNombre() + "        " + reservas.get(i).getFechaEntrada());
+            System.out.println(reservas.get(i).getCliente().getNombre() + "     " + reservas.get(i).getFechaEntrada());
         }
     }
 }
