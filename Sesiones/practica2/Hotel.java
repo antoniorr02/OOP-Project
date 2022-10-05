@@ -53,5 +53,9 @@ public class Hotel {
         return insertado;
     }
 
+    public int numEmpleados() {
+        return empleados.size();
+    }
+
 
 }

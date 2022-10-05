@@ -22,5 +22,6 @@ public class Principal {
 
         Empleado empleado = new Empleado("José");
         hotel1.addEmpleado(empleado);
+        System.out.println("Numero de trabajadores del hotel " + hotel1.getNombre() + ": " + hotel1.numEmpleados());
     }
 }
