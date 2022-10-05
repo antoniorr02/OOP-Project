@@ -16,6 +16,7 @@ public class Hotel {
         estrellas = stars;
         director = null;
         reservas = new ArrayList<Reserva>();
+        empleados = new ArrayList<Empleado>();
     }
 
     public static int getNUM_HOTELES() {
@@ -45,7 +46,7 @@ public class Hotel {
 
     public boolean addEmpleado(Empleado empleado) {
         boolean insertado = false;
-        if(empleado.addTrabajo(this)) {
+        if(empleado.addTrabajo(this)){
             empleados.add(empleado);
             insertado = true;
         }
