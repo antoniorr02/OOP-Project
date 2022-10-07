@@ -1,4 +1,4 @@
-/*package civitas;
+package civitas;
 
 class GestorEstados {
   EstadoJuego estadoInicial() {
@@ -77,4 +77,4 @@ class GestorEstados {
     return siguiente;
   }
 
-}*/
+}

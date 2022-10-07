@@ -9,6 +9,8 @@ public class Casilla {
     private String nombre;
     private float precioCompra, precioEdificar, precioBaseAlquiler;
     private int numCasas, numHoteles;
+    private Sorpresa sorpresa;
+    private MazoSorpresa mazo;
 
     float FACTORALQUILERCALLE = 1.0f;
     float FACTORALQUILERCASA  = 1.0f;
@@ -21,7 +23,9 @@ public class Casilla {
         this.precioEdificar = precioedificar;
         this.precioBaseAlquiler = preciobasealquiler;
         this.numCasas = 0;
-        this.numHoteles = 0;        
+        this.numHoteles = 0;
+        this.sorpresa = null; // Cuidado con la inicializacion, no estoy seguro.
+        this.mazo = null;
     }
 
     public TipoCasilla getTipo() {
