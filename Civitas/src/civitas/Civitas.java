@@ -80,13 +80,15 @@ public class Civitas {
 
         }
 
-        Tablero tablero = new Tablero();
+        /*Tablero tablero = new Tablero();
         Casilla nueva1 = new Casilla(TipoCasilla.CALLE,"Reyes Católicos", 10, 20,5);
         Casilla nueva2 = new Casilla(TipoCasilla.CALLE,"Camino de Ronda", 7,15,3);
         tablero.añadeCasilla(nueva1);
         tablero.añadeCasilla(nueva2);
         System.out.println(tablero.getCasilla(0).toString());
-        System.out.println(tablero.getCasilla(1).toString());
+        System.out.println(tablero.getCasilla(1).toString());*/
+        Casilla casilla = new Casilla("Reyes Católicos", 10, 20,5);
+        System.out.println(casilla.getPrecioEdificar());
     }
     
 }

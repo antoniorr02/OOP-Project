@@ -13,7 +13,7 @@ public class Jugador {
     private String nombre;
     private boolean puedeComprar;
     private float saldo;
-    private Casilla casilla; // Revisar este atributo, aunque creo que está bien.
+    private Casilla casilla;
     
 
     public boolean getPuedeComprar() {
