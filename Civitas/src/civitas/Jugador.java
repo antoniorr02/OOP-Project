@@ -17,6 +17,9 @@ public class Jugador {
     private float saldo;
     private ArrayList<Casilla> propiedades;
     
+    public String getNombre() {
+        return nombre;
+    }
 
     public boolean getPuedeComprar() {
         return puedeComprar;
