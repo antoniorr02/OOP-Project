@@ -13,7 +13,7 @@ public class Casilla {
     private int numCasas, numHoteles;
     private Sorpresa sorpresa;
     private MazoSorpresa mazo;
-    private ArrayList<Jugador> jugadores;
+    private Jugador propietario;
 
     float FACTORALQUILERCALLE = 1.0f;
     float FACTORALQUILERCASA  = 1.0f;
@@ -27,7 +27,7 @@ public class Casilla {
         this.numHoteles = 0;
         this.sorpresa = null; // Cuidado con la inicializacion, no estoy seguro.
         this.mazo = null;
-        this.jugadores = null;
+        this.propietario = null;
     }
 
     public Casilla(String calle, float preciocompra, float precioedificar, float preciobasealquiler) {

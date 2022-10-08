@@ -1,6 +1,8 @@
 
 package civitas;
 
+import java.util.ArrayList;
+
 public class Jugador {
 
     static private int CasasMax = 4;
@@ -13,7 +15,7 @@ public class Jugador {
     private String nombre;
     private boolean puedeComprar;
     private float saldo;
-    private Casilla casilla;
+    private ArrayList<Casilla> propiedades;
     
 
     public boolean getPuedeComprar() {
