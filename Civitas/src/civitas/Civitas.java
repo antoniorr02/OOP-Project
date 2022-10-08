@@ -88,7 +88,7 @@ public class Civitas {
         System.out.println(tablero.getCasilla(0).toString());
         System.out.println(tablero.getCasilla(1).toString());*/
         Casilla casilla = new Casilla("Reyes Católicos", 10, 20,5);
-        System.out.println(casilla.getPrecioEdificar());
+        System.out.println(casilla.toString());
     }
     
 }

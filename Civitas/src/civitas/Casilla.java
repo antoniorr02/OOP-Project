@@ -92,9 +92,15 @@ public class Casilla {
 
     public String toString(){
         String cadena = "";
-        if (tipo == TipoCasilla.CALLE)
-            cadena = nombre + ": Compra " +  precioCompra + ", Edificar " + precioEdificar + ", Alquiler base " + precioBaseAlquiler + ", Casas " + numCasas + ", Hoteles " + numHoteles + ", Propietario " + propietario.getNombre();
-        else if (tipo == TipoCasilla.DESCANSO)
+        if (tipo == TipoCasilla.CALLE) {
+            String dueño = "";
+            try {
+                dueño = propietario.getNombre();
+            } catch (Exception e) {
+                dueño = "No tiene dueño";
+            }
+            cadena = nombre + ": Compra " +  precioCompra + ", Edificar " + precioEdificar + ", Alquiler base " + precioBaseAlquiler + ", Casas " + numCasas + ", Hoteles " + numHoteles + ", Propietario: " + dueño;
+        } else if (tipo == TipoCasilla.DESCANSO)
             cadena = nombre;
         else
             cadena = nombre; // Ver si tengo que añadir algo de MazoSorpresas. 
