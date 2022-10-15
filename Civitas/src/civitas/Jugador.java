@@ -2,9 +2,6 @@
 package civitas;
 
 import java.util.ArrayList;
-
-import javax.xml.crypto.KeySelector.Purpose;
-
 public class Jugador implements Comparable<Jugador> {
 
     static private int CasasMax = 4;
@@ -71,19 +68,70 @@ public class Jugador implements Comparable<Jugador> {
         return propiedades;
     }
 
-/////////////// METHODS.
-
-    public boolean getPuedeComprar() {
+    boolean getPuedeComprar() {
         return puedeComprar;
     }
 
-    public boolean tieneAlgoQueGestionar() { // Revisar visibilidad
-        return true; // Implementar... 
+/////////////// METHODS.
+
+    private boolean existeLaPropiedad(int ip) {
+        return ip <= propiedades.size(); // Comprobar.
+    }
+
+    boolean puedeComprarCasilla() {
+        puedeComprar = true;
+        return puedeComprar;
+    }
+
+    boolean paga(float cantidad) {
+        return modificaSaldo(cantidad*(-1));
+    }
+
+    boolean pagaAlquiler(float cantidad) {
+        return paga(cantidad);
+    }
+
+    boolean recibe(float cantidad) {
+        return modificaSaldo(cantidad);
+    }
+
+    boolean modificaSaldo(float cantidad) {
+        saldo += cantidad;
+        return true;
+    }
+
+    boolean moverACasilla(int c) {
+        casillaActual = c;
+        puedeComprar = false;
+        Diario.getInstance().ocurreEvento("Movimiento del jugador"); // No estoy seguro.
+        return true;
+    }
+
+    private boolean puedoGastar(float precio) {
+        return saldo >= precio;
+    }
+
+    boolean tieneAlgoQueGestionar() { // Revisar visibilidad
+        return propiedades.size() >= 1; 
+    }
+
+    boolean pasaPorSalida() {
+        recibe(PasoPorSalida);
+        Diario.getInstance().ocurreEvento("Pasa por salida");
+        return true;
+    }
+
+    private boolean puedoEdificarCasa(Casilla c) {
+        return puedoGastar(c.getPrecioEdificar()) && c.getNumCasas() < 4;
+    }
+
+    private boolean puedoEdificarHotel(Casilla c) {
+        return puedoGastar(c.getPrecioEdificar()) && c.getNumHoteles() < 4 && c.getNumCasas() == 4;
     }
 
     @Override
     public int compareTo(Jugador o) {
         // TODO Auto-generated method stub
         return 0;
-    }
+    } // Completar.
 }
