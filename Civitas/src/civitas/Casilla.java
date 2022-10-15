@@ -18,6 +18,8 @@ public class Casilla {
     float FACTORALQUILERCALLE = 1.0f;
     float FACTORALQUILERCASA  = 1.0f;
     float FACTORALQUILERHOTEL = 4.0f;
+
+/////////////////// CONSTRUCTORS.
     
     private void init() {
         this.precioCompra = 0.0f;
@@ -50,6 +52,8 @@ public class Casilla {
         this.mazo = m;
     }
 
+/////////////////////// GETTERS.
+
     public TipoCasilla getTipo() {
         return tipo;
     }
@@ -77,6 +81,12 @@ public class Casilla {
     public float getPrecioAlquilerCompleto() {
         return precioBaseAlquiler * (FACTORALQUILERCALLE + numCasas*FACTORALQUILERCASA + numHoteles*FACTORALQUILERHOTEL);
     }
+
+    public int cantidadCasasHoteles() {
+        return numCasas + numHoteles;
+    }
+
+//////////////// METHODS.
     
     public boolean construirCasa() {
         int inicio = numCasas;
@@ -110,10 +120,6 @@ public class Casilla {
     public void informe(int actual, ArrayList<Jugador> todos) {
         Diario.getInstance().ocurreEvento(toString() + "\n      Ha caido el jugador " + todos.get(actual).getNombre());
     } // No estoy seguro de si es correcto del todo.
-
-    public int cantidadCasasHoteles() {
-        return numCasas + numHoteles;
-    }
 
     public boolean esEsteElPropietario(Jugador j) {
         return propietario == j; // Comprobar si funciona bien el operador ==
