@@ -3,6 +3,8 @@ package civitas;
 
 import java.util.ArrayList;
 
+import javax.xml.crypto.KeySelector.Purpose;
+
 public class Jugador implements Comparable<Jugador> {
 
     static private int CasasMax = 4;
@@ -28,10 +30,14 @@ public class Jugador implements Comparable<Jugador> {
     }
 
     protected Jugador(Jugador j) {
-        
+        casillaActual = j.getCasillaActual();
+        nombre = j.getNombre();
+        puedeComprar = j.getPuedeComprar();
+        saldo = j.getSaldo();
+        propiedades = j.getPropiedades();
     }
     
-//////////////// GETTERS.
+/////////////// GETTERS.
 
     protected String getNombre() {
         return nombre;
@@ -65,7 +71,7 @@ public class Jugador implements Comparable<Jugador> {
         return propiedades;
     }
 
-//////////////// METHODS.
+/////////////// METHODS.
 
     public boolean getPuedeComprar() {
         return puedeComprar;
