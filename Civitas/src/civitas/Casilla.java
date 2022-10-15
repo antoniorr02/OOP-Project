@@ -108,6 +108,35 @@ public class Casilla {
     }
 
     public void informe(int actual, ArrayList<Jugador> todos) {
-        //Diario.getInstance().ocurreEvento("Ha caido el jugador " + actual); Arreglar
+        Diario.getInstance().ocurreEvento(toString() + "\n      Ha caido el jugador " + todos.get(actual).getNombre());
+    } // No estoy seguro de si es correcto del todo.
+
+    public int cantidadCasasHoteles() {
+        return numCasas + numHoteles;
+    }
+
+    public boolean esEsteElPropietario(Jugador j) {
+        return propietario == j; // Comprobar si funciona bien el operador ==
+    }
+
+    boolean derruirCasas(int n, Jugador j) {
+        boolean realizado = false;
+        if (esEsteElPropietario(j) && numCasas >= n) {
+            numCasas -= n;
+            realizado = true;
+        }
+        return realizado;
+    }
+
+    public boolean tienePropietario() {
+        return propietario != null;
+    }
+
+    public void tramitarAlquiler(Jugador j) {
+        if (tienePropietario() && !esEsteElPropietario(j)) {
+            // Falta la implementacion de los metodos pagaAlquiler y recibe en clase Jugador
+            // j.pagaAlquiler(getPrecioAlquilerCompleto());
+            // propietario.recibe(getPrecioAlquilerCompleto());
+        }
     }
 }
