@@ -32,7 +32,7 @@ public class Casilla {
         this.propietario = null;
     }
 
-    public Casilla(String calle, float preciocompra, float precioedificar, float preciobasealquiler) {
+    Casilla(String calle, float preciocompra, float precioedificar, float preciobasealquiler) {
         init();
         this.tipo = TipoCasilla.CALLE;
         this.nombre = calle;
@@ -41,12 +41,12 @@ public class Casilla {
         this.precioBaseAlquiler = preciobasealquiler;
     }
 
-    public Casilla(String name) {
+    Casilla(String name) {
         this.tipo = TipoCasilla.DESCANSO;
         this.nombre = name;
     }
 
-    public Casilla(String name, MazoSorpresa m) {
+    Casilla(String name, MazoSorpresa m) {
         this.tipo = TipoCasilla.SORPRESA;
         this.nombre = name;
         this.mazo = m;
@@ -62,23 +62,23 @@ public class Casilla {
         return nombre;
     }
     
-    public float getPrecioCompra(){
+    float getPrecioCompra(){
         return precioCompra;
     }
     
-    public float getPrecioEdificar(){
+    float getPrecioEdificar(){
         return precioEdificar;
     }
     
-    public int getNumCasas() {
+    int getNumCasas() {
         return numCasas;
     }
     
-    public int getNumHoteles() {
+    int getNumHoteles() {
         return numHoteles;
     }
     
-    public float getPrecioAlquilerCompleto() {
+    float getPrecioAlquilerCompleto() {
         return precioBaseAlquiler * (FACTORALQUILERCALLE + numCasas*FACTORALQUILERCASA + numHoteles*FACTORALQUILERHOTEL);
     }
 
@@ -88,13 +88,13 @@ public class Casilla {
 
 //////////////// METHODS.
     
-    public boolean construirCasa() {
+    boolean construirCasa() {
         int inicio = numCasas;
         numCasas++;
         return inicio == numCasas-1; // Comprobamos si el número de casas ha aumentado en 1.
     }
     
-    public boolean construirHotel() {
+    boolean construirHotel() {
         int inicio = numHoteles;
         numHoteles++;
         return inicio == numHoteles-1; // Comprobamos si el número de casas ha aumentado en 1.
@@ -117,7 +117,7 @@ public class Casilla {
         return cadena;
     }
 
-    public void informe(int actual, ArrayList<Jugador> todos) {
+    void informe(int actual, ArrayList<Jugador> todos) {
         Diario.getInstance().ocurreEvento(toString() + "\n      Ha caido el jugador " + todos.get(actual).getNombre());
     } // No estoy seguro de si es correcto del todo.
 
@@ -140,9 +140,8 @@ public class Casilla {
 
     public void tramitarAlquiler(Jugador j) {
         if (tienePropietario() && !esEsteElPropietario(j)) {
-            // Falta la implementacion de los metodos pagaAlquiler y recibe en clase Jugador
-            // j.pagaAlquiler(getPrecioAlquilerCompleto());
-            // propietario.recibe(getPrecioAlquilerCompleto());
+            j.pagaAlquiler(getPrecioAlquilerCompleto());
+            propietario.recibe(getPrecioAlquilerCompleto());
         }
     }
 }
