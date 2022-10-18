@@ -12,7 +12,7 @@ public class Sorpresa {
     private TipoSorpresa tipo;
     private MazoSorpresa mazo; // Misma duda de su uso que en casilla.
 
-    public Sorpresa(TipoSorpresa t, String text, int v) {
+    Sorpresa(TipoSorpresa t, String text, int v) {
         texto = text;
         valor = v;
         tipo = t;
@@ -23,15 +23,25 @@ public class Sorpresa {
     }
 
     void aplicarAJugador(int actual, ArrayList<Jugador> todos) {
-
+        if (tipo == TipoSorpresa.PAGARCOBRAR) {
+            aplicarAJugador_pagarCobrar(actual, todos);
+        } else if (tipo == TipoSorpresa.PORCASAHOTEL) {
+            aplicarAJugador_porCasaHotel(actual, todos);
+        }
     }
 
     private void aplicarAJugador_pagarCobrar(int actual, ArrayList<Jugador> todos) {
-
+        informe(actual, todos);
+        todos.get(actual).modificaSaldo(this.valor);
     }
 
     private void aplicarAJugador_porCasaHotel(int actual, ArrayList<Jugador> todos) {
-
+        informe(actual, todos);
+        int numCasasHoteles = 0;
+        for (int i = 0; i < todos.get(actual).getPropiedades().size(); i++) {
+            numCasasHoteles += todos.get(actual).getPropiedades().get(i).cantidadCasasHoteles();
+        }
+        todos.get(actual).modificaSaldo(this.valor * numCasasHoteles);
     }
 
     public String toString() {
