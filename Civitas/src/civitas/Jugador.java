@@ -21,7 +21,7 @@ public class Jugador implements Comparable<Jugador> {
     Jugador(String n) {
         casillaActual = 0;
         nombre = n;
-        puedeComprar = false; // Comprobar este atributo como debe de ponerse
+        puedeComprar = true; // Comprobar este atributo como debe de ponerse
         saldo = SaldoInicial; // Ver cantidad correcta.
         propiedades = null;
     }
