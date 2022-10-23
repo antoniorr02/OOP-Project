@@ -21,9 +21,9 @@ public class Jugador implements Comparable<Jugador> {
     Jugador(String n) {
         casillaActual = 0;
         nombre = n;
-        puedeComprar = true; // Comprobar este atributo como debe de ponerse
-        saldo = SaldoInicial; // Ver cantidad correcta.
-        propiedades = null;
+        puedeComprar = true;
+        saldo = SaldoInicial;
+        propiedades = new ArrayList<Casilla>();
     }
 
     protected Jugador(Jugador j) {
@@ -103,7 +103,7 @@ public class Jugador implements Comparable<Jugador> {
     boolean moverACasilla(int c) {
         casillaActual = c;
         puedeComprar = false;
-        Diario.getInstance().ocurreEvento("Movimiento del jugador"); // No estoy seguro.
+        Diario.getInstance().ocurreEvento("Movimiento del jugador " + nombre + " a la casilla " + casillaActual);
         return true;
     }
 
@@ -111,7 +111,7 @@ public class Jugador implements Comparable<Jugador> {
         return saldo >= precio;
     }
 
-    boolean tieneAlgoQueGestionar() { // Revisar visibilidad
+    boolean tieneAlgoQueGestionar() {
         return propiedades.size() >= 1; 
     }
 
@@ -131,7 +131,6 @@ public class Jugador implements Comparable<Jugador> {
 
     @Override
     public int compareTo(Jugador o) {
-        // TODO Auto-generated method stub
-        return 0;
-    } // Completar.
+        return (int)(getSaldo() - o.getSaldo());
+    } // Comparar
 }

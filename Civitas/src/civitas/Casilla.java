@@ -27,7 +27,7 @@ public class Casilla {
         this.precioBaseAlquiler = 0.0f;
         this.numCasas = 0;
         this.numHoteles = 0;
-        this.sorpresa = null; // Cuidado con la inicializacion, no estoy seguro.
+        this.sorpresa = null;
         this.mazo = null;
         this.propietario = null;
     }
@@ -113,17 +113,18 @@ public class Casilla {
         } else if (tipo == TipoCasilla.DESCANSO)
             cadena = nombre;
         else
-            cadena = nombre; // Ver si tengo que añadir algo de MazoSorpresas. 
+            cadena = nombre;
+
         return cadena;
-    }
+    } // Comparar.
 
     void informe(int actual, ArrayList<Jugador> todos) {
         Diario.getInstance().ocurreEvento(toString() + "\n      Ha caido el jugador " + todos.get(actual).getNombre());
-    } // No estoy seguro de si es correcto del todo.
+    } // Comparar.
 
     public boolean esEsteElPropietario(Jugador j) {
-        return propietario == j; // Comprobar si funciona bien el operador ==
-    }
+        return propietario == j; 
+    } // Comparar
 
     boolean derruirCasas(int n, Jugador j) {
         boolean realizado = false;

@@ -2,8 +2,6 @@ package civitas;
 
 import java.util.ArrayList;
 
-import javax.swing.text.StyledEditorKit.BoldAction;
-
 public class CivitasJuego {
     private int indiceJugadorActual;
     private Tablero tablero;
@@ -13,7 +11,7 @@ public class CivitasJuego {
     private EstadoJuego estado;
 
     public CivitasJuego(String[] nombres, boolean debug) {
-        jugadores = null;
+        jugadores = new ArrayList<Jugador>();
         if (nombres.length <= 4) {
             for (int i = 0; i < nombres.length; i++) {
                 jugadores.set(i, new Jugador(nombres[i]));
@@ -28,17 +26,17 @@ public class CivitasJuego {
         Dado.getInstance().setDebug(debug);
         indiceJugadorActual = Dado.getInstance().quienEmpieza(jugadores.size());
         mazo = new MazoSorpresa(debug);
-        tablero = new Tablero();
+        inicializaMazoSorpresas();
         inicializaTablero(mazo);
     }
 
     private void inicializaTablero(MazoSorpresa m) {
-
-    }
+        tablero = new Tablero();
+    } // No sé que más poner
 
     private void inicializaMazoSorpresas() {
 
-    }
+    } // Cuales son las cartas??
     
     public Jugador getJugadorActual() {
         return jugadores.get(indiceJugadorActual);
@@ -71,7 +69,7 @@ public class CivitasJuego {
     }
 
     private ArrayList<Jugador> ranking() {
-        // Ns como tener en cuenta el compareTo
+        
     }
 
     private void contabilizarPasosPorSalida() {
