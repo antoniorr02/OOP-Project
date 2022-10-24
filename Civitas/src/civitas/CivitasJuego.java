@@ -1,6 +1,7 @@
 package civitas;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class CivitasJuego {
     private int indiceJugadorActual;
@@ -14,7 +15,7 @@ public class CivitasJuego {
         jugadores = new ArrayList<Jugador>();
         if (nombres.length <= 4) {
             for (int i = 0; i < nombres.length; i++) {
-                jugadores.set(i, new Jugador(nombres[i]));
+                jugadores.add(new Jugador(nombres[i]));
             }
         } else {
             System.out.println("Numero de jugadores incorrecto");
@@ -52,6 +53,7 @@ public class CivitasJuego {
 
     public boolean construirCasa(int ip) {
         return getJugadorActual().getPropiedades().get(ip).construirCasa();
+    }
 
     public boolean construirHotel(int ip) {
         return getJugadorActual().getPropiedades().get(ip).construirHotel();
@@ -59,7 +61,7 @@ public class CivitasJuego {
 
     public boolean finalDelJuego() {
         boolean bancarrota = false;
-        for (int i = 0; i < jugadores.size() i++) {
+        for (int i = 0; i < jugadores.size(); i++) {
             if (jugadores.get(i).getSaldo() < 0) {
                 bancarrota = true;
                 break;
@@ -69,11 +71,16 @@ public class CivitasJuego {
     }
 
     private ArrayList<Jugador> ranking() {
-        
+        ArrayList<Jugador> r = new ArrayList<Jugador>();
+        for (int i = 0; i < jugadores.size(); i++) {
+            r.add(jugadores.get(i));
+        }
+        Collections.sort(r); // Esto coge el compareTo?
+        return r;
     }
 
     private void contabilizarPasosPorSalida() {
-        if (tablero.computarPasoPorSalida()) // Invent, está mal!
+        if (tablero.computarPasoPorSalida())
             getJugadorActual().pasaPorSalida(); 
     }
 }

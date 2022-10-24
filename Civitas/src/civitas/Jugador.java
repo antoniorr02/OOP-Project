@@ -75,7 +75,7 @@ public class Jugador implements Comparable<Jugador> {
 /////////////// METHODS.
 
     private boolean existeLaPropiedad(int ip) {
-        return ip <= propiedades.size(); // Comprobar.
+        return (ip >= 0 && ip < propiedades.size());
     }
 
     boolean puedeComprarCasilla() {
@@ -131,6 +131,6 @@ public class Jugador implements Comparable<Jugador> {
 
     @Override
     public int compareTo(Jugador o) {
-        return (int)(getSaldo() - o.getSaldo());
-    } // Comparar
+        return -(int)(getSaldo() - o.getSaldo());
+    } // Le he puesto el signo negativo, ya que si no me colocaba el primero en el ranking al jugador con menos dinero.
 }

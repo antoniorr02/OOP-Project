@@ -116,7 +116,7 @@ public class Casilla {
             cadena = nombre;
 
         return cadena;
-    } // Comparar.
+    } 
 
     void informe(int actual, ArrayList<Jugador> todos) {
         Diario.getInstance().ocurreEvento(toString() + "\n      Ha caido el jugador " + todos.get(actual).getNombre());

@@ -1,5 +1,7 @@
 package civitas;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author antonio
@@ -89,6 +91,23 @@ public class Civitas {
         System.out.println(tablero.getCasilla(1).toString());*/
         Casilla casilla = new Casilla("Reyes Católicos", 10, 20,5);
         System.out.println(casilla.toString());
+
+        /*String jugadores[] = {"Antonio", "Pepe", "Juan"};
+        CivitasJuego partida = new CivitasJuego(jugadores, false);
+        System.out.println(partida.getJugadorActual().getNombre());
+        ArrayList<Jugador> j = new ArrayList<Jugador>();
+        for (int i = 0; i < partida.jugadores.size(); i++) {
+            System.out.println(partida.jugadores.get(i).getNombre() + " saldo " + partida.jugadores.get(i).getSaldo());
+        }
+        partida.jugadores.get(1).saldo = 5;
+        partida.jugadores.get(2).saldo = 15;
+        System.out.println("//////////////////");
+        j = partida.ranking();
+        for (int i = 0; i < j.size(); i++) {
+            System.out.println(j.get(i).getNombre() + " saldo " + j.get(i).getSaldo());
+        }*///Para que esto funcione debemos de poner ciertos datos y métodos privados como públicos, se ha usado para comprobar 
+        // que el método compareTo y ranking funcionan correctamente.
+
     }
     
 }
