@@ -44,7 +44,7 @@ public class CivitasJuego {
     }
 
     private void pasarTurno() {
-        indiceJugadorActual = (indiceJugadorActual+1) / jugadores.size();
+        indiceJugadorActual = (indiceJugadorActual+1) % jugadores.size();
     }
 
     public void siguientePasoCompletado (OperacionJuego operacion) {
