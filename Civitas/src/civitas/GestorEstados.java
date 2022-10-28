@@ -1,4 +1,4 @@
-package civitas;
+package src.civitas;
 
 class GestorEstados {
   EstadoJuego estadoInicial() {

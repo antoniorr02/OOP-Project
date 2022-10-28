@@ -1,4 +1,4 @@
-package civitas;
+package src.civitas;
 
 import java.util.Random;
 /**

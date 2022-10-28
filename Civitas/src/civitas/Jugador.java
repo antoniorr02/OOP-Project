@@ -1,5 +1,5 @@
 
-package civitas;
+package src.civitas;
 
 import java.util.ArrayList;
 public class Jugador implements Comparable<Jugador> {

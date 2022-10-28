@@ -1,5 +1,5 @@
 
-package civitas;
+package src.civitas;
 
 enum EstadoJuego {
   INICIO_TURNO,
