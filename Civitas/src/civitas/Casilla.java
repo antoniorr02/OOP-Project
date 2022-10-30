@@ -145,4 +145,33 @@ public class Casilla {
             propietario.recibe(getPrecioAlquilerCompleto());
         }
     }
+
+    void recibeJugador(int iactual, ArrayList<Jugador> todos){
+        if (tipo == TipoCasilla.CALLE)
+            recibeJugador_calle(iactual, todos);
+        else if (tipo == TipoCasilla.SORPRESA)
+            recibeJugador_sorpresa(iactual, todos);
+        else
+            informe(iactual, todos);
+    }
+
+    private void recibeJugador_calle(int iactual, ArrayList<Jugador> todos) {
+        informe(iactual, todos);
+        Jugador j = todos.get(iactual);
+        if (!tienePropietario())
+            j.puedeComprarCasilla();
+        else
+            tramitarAlquiler(j);
+    }
+
+    private void recibeJugador_sorpresa(int iactual, ArrayList<Jugador> todos) {
+        sorpresa  = mazo.siguiente();
+        informe(iactual, todos);
+        sorpresa.aplicarAJugador(iactual, todos);
+    }
+
+    boolean comprar (Jugador j) {
+        propietario = j;
+        return j.paga(getPrecioCompra());
+    }
 }

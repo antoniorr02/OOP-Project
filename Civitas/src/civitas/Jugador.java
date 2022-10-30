@@ -74,6 +74,13 @@ public class Jugador implements Comparable<Jugador> {
 
 /////////////// METHODS.
 
+    boolean enBancaRota() {
+        boolean bancarrota = false;
+        if (saldo <= 0) {
+            bancarrota = true;
+        }
+        return bancarrota;
+    }
     private boolean existeLaPropiedad(int ip) {
         return (ip >= 0 && ip < propiedades.size());
     }
@@ -116,21 +123,68 @@ public class Jugador implements Comparable<Jugador> {
     }
 
     boolean pasaPorSalida() {
-        recibe(PasoPorSalida);
+        recibe(getPremioPasoPorSalida());
         Diario.getInstance().ocurreEvento("Pasa por salida");
         return true;
     }
 
     private boolean puedoEdificarCasa(Casilla c) {
-        return puedoGastar(c.getPrecioEdificar()) && c.getNumCasas() < 4;
+        return puedoGastar(c.getPrecioEdificar()) && c.getNumCasas() < getCasasMax();
     }
 
     private boolean puedoEdificarHotel(Casilla c) {
-        return puedoGastar(c.getPrecioEdificar()) && c.getNumHoteles() < 4 && c.getNumCasas() == 4;
+        return puedoGastar(c.getPrecioEdificar()) && c.getNumHoteles() < getHotelesMax() && c.getNumCasas() >= getCasasPorHotel();
     }
 
     @Override
     public int compareTo(Jugador o) {
         return -(int)(getSaldo() - o.getSaldo());
     } // Le he puesto el signo negativo, ya que si no me colocaba el primero en el ranking al jugador con menos dinero.
+
+    boolean comprar (Casilla casilla) {
+        boolean result = false;
+        if (puedeComprar) {
+            float precio = casilla.getPrecioCompra();
+            if(puedoGastar(precio)) {
+                result = casilla.comprar(this);
+                //add(titulo) //??
+                Diario.getInstance().ocurreEvento("El jugador " + getNombre() + " compra la propiedad " + casilla.getNombre());
+                puedeComprar = false;
+            } else {
+                Diario.getInstance().ocurreEvento("El jugador " + getNombre() + " no tiene saldo para comprar la propiedad " + casilla.getNombre());
+            }
+        }
+        return result;
+    }
+
+    boolean construirCasa(int ip) {
+        boolean result = false;
+        if (existeLaPropiedad(ip)) {
+            Casilla propiedad = propiedades.get(ip);
+            boolean puedoEdificar = puedoEdificarCasa(propiedad);
+            if(puedoEdificar) {
+                float precioEdificar = propiedad.getPrecioEdificar(); 
+                paga(precioEdificar);
+                result = propiedad.construirHotel();
+                Diario.getInstance().ocurreEvento("El jugador " + getNombre() + " construye casa en la propiedad " + propiedad.getNombre());
+            }
+        }
+        return result;
+    }
+
+    boolean construirHotel(int ip) {
+        boolean result = false;
+        if (existeLaPropiedad(ip)) {
+            Casilla propiedad = propiedades.get(ip);
+            boolean puedoEdificarHotel = puedoEdificarHotel(propiedad);
+            if(puedoEdificarHotel) {
+                float precioEdificar = propiedad.getPrecioEdificar(); 
+                paga(precioEdificar);
+                result = propiedad.construirHotel();
+                propiedad.derruirCasas(ip, this);
+                Diario.getInstance().ocurreEvento("El jugador " + getNombre() + " construye hotel en la propiedad " + propiedad.getNombre());
+            }
+        }
+        return result;
+    }
 }

@@ -71,4 +71,52 @@ public class VistaTextual implements Vista {
     return opcion;
   }
 
+
+
+  @Override
+  public void actualiza() {
+    // TODO Auto-generated method stub
+    
+  }
+
+
+
+  @Override
+  public Respuesta comprar() {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+
+
+  @Override
+  public OperacionInmobiliaria elegirOperacion() {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+
+
+  @Override
+  public int elegirPropiedad() {
+    // TODO Auto-generated method stub
+    return 0;
+  }
+
+
+
+  @Override
+  public void mostrarSiguienteOperacion(OperacionJuego operación) {
+    // TODO Auto-generated method stub
+    
+  }
+
+
+
+  @Override
+  public void mostrarEventos() {
+    // TODO Auto-generated method stub
+    
+  }
+
 }

@@ -10,7 +10,7 @@ public class Sorpresa {
     private String texto;
     private int valor;
     private TipoSorpresa tipo;
-    private MazoSorpresa mazo; // Misma duda de su uso que en casilla.
+    //private MazoSorpresa mazo; // Misma duda de su uso que en casilla.
 
     Sorpresa(TipoSorpresa t, String text, int v) {
         texto = text;
