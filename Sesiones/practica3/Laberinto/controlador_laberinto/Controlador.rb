@@ -35,7 +35,7 @@ module Controlador_laberinto
             if @habitacion.pasar(direccion)
                 @habitacion = @habitacion.get_lado(direccion).habitacion_al_otro_lado(@habitacion)
             else
-                vidas -= 1
+                @vidas -= 1
             end
             if @habitacion == nil
                 @estado = Estado_juego::EN_SALIDA_LABERINTO

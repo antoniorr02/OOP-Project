@@ -56,7 +56,7 @@ public class Jugador implements Comparable<Jugador> {
         return PasoPorSalida;
     }
 
-    int getCasillaActual() {
+    public int getCasillaActual() {
         return casillaActual;
     }
 
@@ -64,7 +64,7 @@ public class Jugador implements Comparable<Jugador> {
         return saldo;
     }
 
-    protected ArrayList<Casilla> getPropiedades() {
+    public ArrayList<Casilla> getPropiedades() {
         return propiedades;
     }
 
@@ -187,4 +187,10 @@ public class Jugador implements Comparable<Jugador> {
         }
         return result;
     }
+
+    public String toString(){
+        String cadena = "";
+        cadena = "Jugador " + getNombre() + " con saldo: " + getSaldo() + " y con propiedades:\n" + getPropiedades().toString();
+        return cadena;
+    } 
 }

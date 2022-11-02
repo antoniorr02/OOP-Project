@@ -20,7 +20,7 @@ class Habitacion
   end
   
   def get_lado(direccion)
-    @lados[direccion]
+    @lados[direccion.to_i]
   end
   
   def pasar(direccion)

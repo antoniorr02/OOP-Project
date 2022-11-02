@@ -75,48 +75,60 @@ public class VistaTextual implements Vista {
 
   @Override
   public void actualiza() {
-    // TODO Auto-generated method stub
-    
+    System.out.println(juegoModel.getJugadorActual().toString());
+    System.out.println(juegoModel.getTablero().getCasilla(juegoModel.getJugadorActual().getCasillaActual()).toString()); // He puesto como público el getCasillaActual(), no sé si es correcto.
+    System.out.println(juegoModel.finalDelJuego());
   }
-
-
 
   @Override
   public Respuesta comprar() {
-    // TODO Auto-generated method stub
-    return null;
+    System.out.println("Si quiere comprar la casilla introduzca s, en otro caso pulse cualquier otra tecla ");
+    Scanner entradaEscaner = new Scanner(System.in); //Creación de un objeto Scanner
+    String entradaTeclado = entradaEscaner.nextLine(); //Invocamos un método sobre un objeto Scanner
+    Respuesta r;
+    if (entradaTeclado == "s") {
+      r = Respuesta.SI;
+    } else {
+      r = Respuesta.NO;
+    }
+    return r;
   }
-
-
 
   @Override
   public OperacionInmobiliaria elegirOperacion() {
-    // TODO Auto-generated method stub
-    return null;
-  }
+    ArrayList<OperacionInmobiliaria> operaciones = new ArrayList<OperacionInmobiliaria>();
+    ArrayList<String> operacionesString = new ArrayList<String>();
+    for (OperacionInmobiliaria op : OperacionInmobiliaria.values()) {
+      operaciones.add(op);
+      operacionesString.add(op.toString());
 
-
+    }
+    int eleccion = menu("Operacion Inmobiliaria", operacionesString);
+    return operaciones.get(eleccion);
+  } // Comprobar.
 
   @Override
   public int elegirPropiedad() {
-    // TODO Auto-generated method stub
-    return 0;
+    ArrayList<Casilla> propiedades =  new ArrayList<Casilla>();
+    propiedades = juegoModel.getJugadorActual().getPropiedades();
+    ArrayList<String> propiedadesString = new ArrayList<String>();
+    for (int i = 0; i < propiedades.size(); i++) {
+      propiedadesString.add(propiedades.get(i).toString()); // He cambiado getPropiedades de protegido a publico, ya que si no no se puede acceder a las propiedades del jugador actual.
+    }
+    int eleccion = menu("Propiedades disponibles", propiedadesString);
+    return eleccion;
   }
-
-
 
   @Override
   public void mostrarSiguienteOperacion(OperacionJuego operación) {
-    // TODO Auto-generated method stub
-    
+    System.out.println(operación.toString()); // No sé si es correcto.
   }
-
-
 
   @Override
   public void mostrarEventos() {
-    // TODO Auto-generated method stub
-    
+    while(Diario.getInstance().eventosPendientes()) {
+      Diario.getInstance().leerEvento();
+    }
   }
 
 }

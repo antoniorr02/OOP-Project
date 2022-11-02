@@ -76,6 +76,7 @@ public class CivitasJuego {
         for (int i = 0; i < jugadores.size(); i++) {
             if (jugadores.get(i).enBancaRota()) {
                 bancarrota = true;
+                ranking().toString();
                 break;
             }
         }
