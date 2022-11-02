@@ -33,12 +33,11 @@ module Controlador_laberinto
         def intentar_avanzar()
             direccion = rand(4)
             if @habitacion.pasar(direccion)
-                #puts "esonszfoogjnebongropksrnvoorksl#{(@habitacion.num_habitacion).to_s}"
+                #puts "contador de habitacion #{(@habitacion.num_habitacion).to_s}"
                 #pared = Elemento_separador.nueva_pared(@laberinto.habitaciones[@habitacion.num_habitacion-1], @laberinto.habitaciones[@habitacion.num_habitacion].get_lado(direccion).habitacion_al_otro_lado(@habitacion))
                 #@laberinto.habitaciones[@habitacion.num_habitacion-1].set_lado(direccion, pared) #Construimos pared en la habitación que dejamos atrás
-                
                 @habitacion = @laberinto.habitaciones[@habitacion.num_habitacion-1].get_lado(direccion).habitacion_al_otro_lado(@laberinto.habitaciones[@habitacion.num_habitacion-1]) #Aquí pasamos a la siguiente habitación
-                #puts "esonszfoogjnebongropksrnvoorksl#{(@habitacion.num_habitacion).to_s}"
+                #puts "contador de habitacion #{(@habitacion.num_habitacion).to_s}"
                 #Construimos pared en la puerta que acabamos de cruzar al entrar a la nueva habitación
                 #if Lista_direcciones[direccion] == Direccion::SUR
                 #    @laberinto.habitaciones[@habitacion.num_habitacion-1].set_lado(Direccion::NORTE, pared)
