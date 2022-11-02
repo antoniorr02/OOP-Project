@@ -31,10 +31,28 @@ module Controlador_laberinto
         end
         
         def intentar_avanzar()
-            direccion = Lista_direcciones[rand(4)]
+            direccion = rand(4)
             if @habitacion.pasar(direccion)
-                @habitacion = @habitacion.get_lado(direccion).habitacion_al_otro_lado(@habitacion)
-            else
+                #puts "esonszfoogjnebongropksrnvoorksl#{(@habitacion.num_habitacion).to_s}"
+                #pared = Elemento_separador.nueva_pared(@laberinto.habitaciones[@habitacion.num_habitacion-1], @laberinto.habitaciones[@habitacion.num_habitacion].get_lado(direccion).habitacion_al_otro_lado(@habitacion))
+                #@laberinto.habitaciones[@habitacion.num_habitacion-1].set_lado(direccion, pared) #Construimos pared en la habitación que dejamos atrás
+                
+                @habitacion = @laberinto.habitaciones[@habitacion.num_habitacion-1].get_lado(direccion).habitacion_al_otro_lado(@laberinto.habitaciones[@habitacion.num_habitacion-1]) #Aquí pasamos a la siguiente habitación
+                #puts "esonszfoogjnebongropksrnvoorksl#{(@habitacion.num_habitacion).to_s}"
+                #Construimos pared en la puerta que acabamos de cruzar al entrar a la nueva habitación
+                #if Lista_direcciones[direccion] == Direccion::SUR
+                #    @laberinto.habitaciones[@habitacion.num_habitacion-1].set_lado(Direccion::NORTE, pared)
+                #end
+                #if Lista_direcciones[direccion] == Direccion::NORTE
+                #    @laberinto.habitaciones[@habitacion.num_habitacion-1].set_lado(Direccion::SUR, pared)
+                #end
+                #if Lista_direcciones[direccion] == Direccion::ESTE
+                #    @laberinto.habitaciones[@habitacion.num_habitacion-1].set_lado(Direccion::OESTE, pared)
+                #end
+                #if Lista_direcciones[direccion] == Direccion::OESTE
+                #    @laberinto.habitaciones[@habitacion.num_habitacion-1].set_lado(Direccion::ESTE, pared)
+                #end
+            else 
                 @vidas -= 1
             end
             if @habitacion == nil
@@ -46,7 +64,8 @@ module Controlador_laberinto
                     @estado =Estado_juego::DENTRO_VIVO
                 end
             end
-            return direccion
+            eleccion = Lista_direcciones[direccion]
+            return eleccion
         end        
     end
 end

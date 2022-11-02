@@ -27,11 +27,8 @@ class Vista_laberinto
 
         if @controlador.estado == Controlador_laberinto::Estado_juego::DENTRO_VIVO
             informe_dentro(@controlador.habitacion.num_habitacion, @controlador.vidas)
-            puts 'press c to continue'
+            puts 'press a key'
             names = gets.chomp()
-            while names != 'c' #como se haría para pedir enter??
-                names = gets.chomp()
-            end
             puts @controlador.intentar_avanzar
             menu_usuario()
         end

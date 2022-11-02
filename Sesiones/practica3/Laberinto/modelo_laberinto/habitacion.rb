@@ -20,11 +20,11 @@ class Habitacion
   end
   
   def get_lado(direccion)
-    @lados[direccion.to_i]
+    @lados[direccion]
   end
   
   def pasar(direccion)
-    if get_lado(direccion)!=nil && get_lado(direccion).tipo==Tipo_separacion::PUERTA
+    if get_lado(direccion).tipo==Tipo_separacion::PUERTA
       return true
     else return false
     end
