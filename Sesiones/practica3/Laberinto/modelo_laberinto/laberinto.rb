@@ -69,6 +69,16 @@ class Laberinto
      @puerta_salida=Elemento_separador.nueva_puerta(@habitaciones[2], nil)
      @habitaciones[2].set_lado(Direccion::NORTE, @puerta_salida)
 
+    #puertas que nos piden: Pregunta de la profesora.
+    #@puerta_entrada=Elemento_separador.nueva_puerta(@habitaciones[0], nil)
+    #@habitaciones[0].set_lado(Direccion::NORTE, @puerta_entrada)
+
+    #@puerta_entrada=Elemento_separador.nueva_puerta(@habitaciones[1], nil)
+    #@habitaciones[1].set_lado(Direccion::NORTE, @puerta_entrada)
+
+    #@puerta_entrada=Elemento_separador.nueva_puerta(@habitaciones[2], nil)
+    #@habitaciones[2].set_lado(Direccion::SUR, @puerta_entrada)
+
     
   end
   
