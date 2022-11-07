@@ -115,7 +115,7 @@ public class Casilla {
         else
             cadena = nombre;
 
-        return cadena;
+        return "Se encuentra en la casilla: " + cadena;
     } 
 
     void informe(int actual, ArrayList<Jugador> todos) {

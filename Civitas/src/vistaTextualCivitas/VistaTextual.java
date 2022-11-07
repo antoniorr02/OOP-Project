@@ -77,7 +77,8 @@ public class VistaTextual implements Vista {
   public void actualiza() {
     System.out.println(juegoModel.getJugadorActual().toString());
     System.out.println(juegoModel.getTablero().getCasilla(juegoModel.getJugadorActual().getCasillaActual()).toString()); // He puesto como público el getCasillaActual(), no sé si es correcto.
-    System.out.println(juegoModel.finalDelJuego());
+    if (juegoModel.finalDelJuego())
+      System.out.println("Final del juego");
   }
 
   @Override
@@ -86,7 +87,7 @@ public class VistaTextual implements Vista {
     Scanner entradaEscaner = new Scanner(System.in); //Creación de un objeto Scanner
     String entradaTeclado = entradaEscaner.nextLine(); //Invocamos un método sobre un objeto Scanner
     Respuesta r;
-    if (entradaTeclado == "s") {
+    if (entradaTeclado.equals("s")) {
       r = Respuesta.SI;
     } else {
       r = Respuesta.NO;
@@ -127,7 +128,7 @@ public class VistaTextual implements Vista {
   @Override
   public void mostrarEventos() {
     while(Diario.getInstance().eventosPendientes()) {
-      Diario.getInstance().leerEvento();
+      System.out.println(Diario.getInstance().leerEvento());
     }
   }
 

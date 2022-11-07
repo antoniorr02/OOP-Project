@@ -1,6 +1,5 @@
 package src;
 
-import java.util.ArrayList;
 import src.civitas.*;
 import src.controladorCivitas.Controlador;
 import src.vistaTextualCivitas.*;
