@@ -147,7 +147,7 @@ public class Jugador implements Comparable<Jugador> {
             float precio = casilla.getPrecioCompra();
             if(puedoGastar(precio)) {
                 result = casilla.comprar(this);
-                //add(titulo) //??
+                propiedades.add(casilla);
                 Diario.getInstance().ocurreEvento("El jugador " + getNombre() + " compra la propiedad " + casilla.getNombre());
                 puedeComprar = false;
             } else {
@@ -165,7 +165,7 @@ public class Jugador implements Comparable<Jugador> {
             if(puedoEdificar) {
                 float precioEdificar = propiedad.getPrecioEdificar(); 
                 paga(precioEdificar);
-                result = propiedad.construirHotel();
+                result = propiedad.construirCasa();
                 Diario.getInstance().ocurreEvento("El jugador " + getNombre() + " construye casa en la propiedad " + propiedad.getNombre());
             }
         }

@@ -13,7 +13,7 @@ public class Controlador {
     public Controlador(CivitasJuego j, Vista v) {
         juego = j;
         vista = v;
-    } // Lo he puesto público, ns si está bien
+    }
     
     public void juega() {
         while (!juego.finalDelJuego()) {
@@ -28,8 +28,8 @@ public class Controlador {
                 if (op == OperacionJuego.COMPRAR) {
                     if (vista.comprar() == Respuesta.SI) {
                         juego.comprar();
-                        juego.siguientePasoCompletado(op);
                     }
+                    juego.siguientePasoCompletado(op);
                 }
                 if (op == OperacionJuego.GESTIONAR) {
                     OperacionInmobiliaria accion = vista.elegirOperacion();
@@ -47,8 +47,8 @@ public class Controlador {
                 }
             } else {
                 juego.finalDelJuego();
-                vista.actualiza();
             }
+            vista.actualiza();
         }
     }
 } 

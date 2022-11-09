@@ -83,7 +83,7 @@ public class VistaTextual implements Vista {
 
   @Override
   public Respuesta comprar() {
-    System.out.println("Si quiere comprar la casilla introduzca s, en otro caso pulse cualquier otra tecla ");
+/*    System.out.println("Si quiere comprar la casilla introduzca s, en otro caso pulse cualquier otra tecla ");
     Scanner entradaEscaner = new Scanner(System.in); //Creación de un objeto Scanner
     String entradaTeclado = entradaEscaner.nextLine(); //Invocamos un método sobre un objeto Scanner
     Respuesta r;
@@ -93,11 +93,17 @@ public class VistaTextual implements Vista {
       r = Respuesta.NO;
     }
     return r;
+*/
+    ArrayList<String> respuesta = new ArrayList<>();
+    respuesta.add("NO");
+    respuesta.add("SI");
+    int opcion = menu("\nHas llegado a la casilla " + juegoModel.getTablero().getCasilla(juegoModel.getJugadorActual().getCasillaActual()).toString() + " ¿Quieres comprarla?", respuesta);
+    return Respuesta.values()[opcion];
   }
 
   @Override
   public OperacionInmobiliaria elegirOperacion() {
-    ArrayList<OperacionInmobiliaria> operaciones = new ArrayList<OperacionInmobiliaria>();
+    /*ArrayList<OperacionInmobiliaria> operaciones = new ArrayList<OperacionInmobiliaria>();
     ArrayList<String> operacionesString = new ArrayList<String>();
     for (OperacionInmobiliaria op : OperacionInmobiliaria.values()) {
       operaciones.add(op);
@@ -105,7 +111,14 @@ public class VistaTextual implements Vista {
 
     }
     int eleccion = menu("Operacion Inmobiliaria", operacionesString);
-    return operaciones.get(eleccion);
+    return operaciones.get(eleccion);*/
+
+    ArrayList<String> operacion = new ArrayList<>();
+    operacion.add("CONSTRUIR_CASA");
+    operacion.add("CONSTRUIR_HOTEL");
+    operacion.add("TERMINAR");
+    int opcion = menu("\n¿Qué número de gestión inmobiliara quieres realizar?",operacion);
+    return OperacionInmobiliaria.values()[opcion];
   } // Comprobar.
 
   @Override
@@ -122,7 +135,7 @@ public class VistaTextual implements Vista {
 
   @Override
   public void mostrarSiguienteOperacion(OperacionJuego operación) {
-    System.out.println(operación.toString()); // No sé si es correcto.
+    System.out.println(operación.toString());
   }
 
   @Override

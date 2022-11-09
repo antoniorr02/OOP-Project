@@ -92,11 +92,11 @@ public class CivitasJuego {
     }
 
     public boolean construirCasa(int ip) {
-        return getJugadorActual().getPropiedades().get(ip).construirCasa();
+        return getJugadorActual().construirCasa(ip);
     }
 
     public boolean construirHotel(int ip) {
-        return getJugadorActual().getPropiedades().get(ip).construirHotel();
+        return getJugadorActual().construirHotel(ip);
     }
 
     public boolean finalDelJuego() {

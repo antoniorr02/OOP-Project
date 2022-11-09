@@ -172,6 +172,6 @@ public class Casilla {
 
     boolean comprar (Jugador j) {
         propietario = j;
-        return j.paga(getPrecioCompra());
+        return propietario.paga(precioCompra);
     }
 }
