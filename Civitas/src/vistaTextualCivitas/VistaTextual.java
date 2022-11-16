@@ -77,8 +77,10 @@ public class VistaTextual implements Vista {
   public void actualiza() {
     System.out.println(juegoModel.getJugadorActual().toString());
     System.out.println("Se encuentra en la casilla: " + juegoModel.getTablero().getCasilla(juegoModel.getJugadorActual().getCasillaActual()).toString()); // He puesto como público el getCasillaActual(), no sé si es correcto.
-    if (juegoModel.finalDelJuego())
+    if (juegoModel.finalDelJuego()) {
       System.out.println("Final del juego");
+      System.exit(0);
+    }
   }
 
   @Override

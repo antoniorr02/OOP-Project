@@ -104,7 +104,12 @@ public class CivitasJuego {
         for (int i = 0; i < jugadores.size(); i++) {
             if (jugadores.get(i).enBancaRota()) {
                 bancarrota = true;
-                ranking().toString();
+                ArrayList<Jugador> orden = ranking();
+                System.out.println("\nEl ranking final será:");
+                for (int j = 0; j < orden.size(); j++) {
+                    int posicion = j + 1;
+                    System.out.println(posicion + ". " + orden.get(j).getNombre() + " con saldo: " + orden.get(j).getSaldo());
+                }
                 break;
             }
         }

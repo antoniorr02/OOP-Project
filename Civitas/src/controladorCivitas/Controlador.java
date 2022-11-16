@@ -45,9 +45,9 @@ public class Controlador {
                         juego.siguientePasoCompletado(op);
                     } 
                 }
-            } else {
+            } /*else {
                 juego.finalDelJuego();
-            }
+            }*///No necesario, lo hace actualiza.
             vista.actualiza();
         }
     }
