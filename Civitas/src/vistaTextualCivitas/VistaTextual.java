@@ -76,7 +76,7 @@ public class VistaTextual implements Vista {
   @Override
   public void actualiza() {
     System.out.println(juegoModel.getJugadorActual().toString());
-    System.out.println(juegoModel.getTablero().getCasilla(juegoModel.getJugadorActual().getCasillaActual()).toString()); // He puesto como público el getCasillaActual(), no sé si es correcto.
+    System.out.println("Se encuentra en la casilla: " + juegoModel.getTablero().getCasilla(juegoModel.getJugadorActual().getCasillaActual()).toString()); // He puesto como público el getCasillaActual(), no sé si es correcto.
     if (juegoModel.finalDelJuego())
       System.out.println("Final del juego");
   }
@@ -97,7 +97,7 @@ public class VistaTextual implements Vista {
     ArrayList<String> respuesta = new ArrayList<>();
     respuesta.add("NO");
     respuesta.add("SI");
-    int opcion = menu("\nHas llegado a la casilla " + juegoModel.getTablero().getCasilla(juegoModel.getJugadorActual().getCasillaActual()).toString() + " ¿Quieres comprarla?", respuesta);
+    int opcion = menu(juegoModel.getTablero().getCasilla(juegoModel.getJugadorActual().getCasillaActual()).toString() + " ¿Quieres comprarla?", respuesta);
     return Respuesta.values()[opcion];
   }
 

@@ -16,8 +16,8 @@ public class Controlador {
     }
     
     public void juega() {
+        vista.actualiza();
         while (!juego.finalDelJuego()) {
-            vista.actualiza();
             vista.pausa();
             OperacionJuego op = juego.siguientePaso();
             vista.mostrarSiguienteOperacion(op);

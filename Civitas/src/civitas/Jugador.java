@@ -181,7 +181,7 @@ public class Jugador implements Comparable<Jugador> {
                 float precioEdificar = propiedad.getPrecioEdificar(); 
                 paga(precioEdificar);
                 result = propiedad.construirHotel();
-                propiedad.derruirCasas(ip, this);
+                propiedad.derruirCasas(CasasPorHotel, this);
                 Diario.getInstance().ocurreEvento("El jugador " + getNombre() + " construye hotel en la propiedad " + propiedad.getNombre());
             }
         }
