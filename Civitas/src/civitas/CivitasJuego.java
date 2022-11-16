@@ -67,16 +67,16 @@ public class CivitasJuego {
     }
 
     private void inicializaMazoSorpresas() {
-        mazo.alMazo(new Sorpresa(TipoSorpresa.PAGARCOBRAR,"Rompes una farola de una pedrada, pagas 100€",-100));
-        mazo.alMazo(new Sorpresa(TipoSorpresa.PAGARCOBRAR,"Te rompes la rodilla y pagas al médico 200€",-200));
-        mazo.alMazo(new Sorpresa(TipoSorpresa.PAGARCOBRAR,"Robas una joyeria y te pilla la policía, pagas 300€",-300));
-        mazo.alMazo(new Sorpresa(TipoSorpresa.PAGARCOBRAR,"Ganas concurso de belleza, recibes 100€",100));
-        mazo.alMazo(new Sorpresa(TipoSorpresa.PAGARCOBRAR,"Ganas la quiniela, recibes 200€",200));
-        mazo.alMazo(new Sorpresa(TipoSorpresa.PAGARCOBRAR,"Eres un potroso, encuentras un billete de 500€ en la acera",500));
-        mazo.alMazo(new Sorpresa(TipoSorpresa.PORCASAHOTEL,"Haces reformas en todas tus viviendas, pagas 200€ por cada propieda",-200));
-        mazo.alMazo(new Sorpresa(TipoSorpresa.PORCASAHOTEL,"Viene un huracán y gastas en arreglos 500€ por vivienda",-500));
-        mazo.alMazo(new Sorpresa(TipoSorpresa.PORCASAHOTEL,"Pedro Sanchez da ayudas de 200€ a cada vivienda",200));
-        mazo.alMazo(new Sorpresa(TipoSorpresa.PORCASAHOTEL,"Vendes todos tus muebles de cada vivienda, ganas 500€ por vivienda",500));
+        mazo.alMazo(new Sorpresa(TipoSorpresa.PAGARCOBRAR,"Pagas el seguro médico, 200€",-200));
+        mazo.alMazo(new Sorpresa(TipoSorpresa.PAGARCOBRAR,"Multa por exceso de velocidad 300€",-300));
+        mazo.alMazo(new Sorpresa(TipoSorpresa.PAGARCOBRAR,"Multa por embriaguez, pagas 100€",-100));
+        mazo.alMazo(new Sorpresa(TipoSorpresa.PAGARCOBRAR," 100€",100));
+        mazo.alMazo(new Sorpresa(TipoSorpresa.PAGARCOBRAR,"La banca arroja un dividendo de 200€",200));
+        mazo.alMazo(new Sorpresa(TipoSorpresa.PAGARCOBRAR,"Te tocan 400 euros en la loteria de Navidad",400));
+        mazo.alMazo(new Sorpresa(TipoSorpresa.PORCASAHOTEL,"Haces reparaciones en todas tus viviendas, pagas 200€ por cada propiedad",-200));
+        mazo.alMazo(new Sorpresa(TipoSorpresa.PORCASAHOTEL,"Inundación provoca unos desperfectos de 100€ en todas las viviendas",-100));
+        mazo.alMazo(new Sorpresa(TipoSorpresa.PORCASAHOTEL,"Recibes ayudas de 50€ a cada vivienda",50));
+        mazo.alMazo(new Sorpresa(TipoSorpresa.PORCASAHOTEL,"Te indemnizan por desperfectos de 400€ en cada vivienda",400));
     }
     
     public Jugador getJugadorActual() {
