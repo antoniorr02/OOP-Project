@@ -12,7 +12,7 @@ public class Casilla {
     }
     
     boolean recibeJugador() {
-        System.out.println("Se ha recibido un jugador");
+        System.out.println("Y además soy una casilla calle");
         return true;
     }
 }
