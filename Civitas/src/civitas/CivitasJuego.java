@@ -70,13 +70,15 @@ public class CivitasJuego {
         mazo.alMazo(new SorpresaPagarCobrar("Pagas el seguro médico, 200€",-200));
         mazo.alMazo(new SorpresaPagarCobrar("Multa por exceso de velocidad 300€",-300));
         mazo.alMazo(new SorpresaPagarCobrar("Multa por embriaguez, pagas 100€",-100));
-        mazo.alMazo(new SorpresaPagarCobrar(" Te encuentras 100€ por la calle",100));
         mazo.alMazo(new SorpresaPagarCobrar("La banca arroja un dividendo de 200€",200));
         mazo.alMazo(new SorpresaPagarCobrar("Te tocan 400 euros en la loteria de Navidad",400));
+
         mazo.alMazo(new SorpresaPorCasaHotel("Haces reparaciones en todas tus viviendas, pagas 200€ por cada propiedad",-200));
         mazo.alMazo(new SorpresaPorCasaHotel("Inundación provoca unos desperfectos de 100€ en todas las viviendas",-100));
         mazo.alMazo(new SorpresaPorCasaHotel("Recibes ayudas de 50€ a cada vivienda",50));
         mazo.alMazo(new SorpresaPorCasaHotel("Te indemnizan por desperfectos de 400€ en cada vivienda",400));
+
+        mazo.alMazo(new SorpresaConvertirme(" Te conviertes en un Jugador Especulador o vuelves a ser normal",0));
     }
     
     public Jugador getJugadorActual() {

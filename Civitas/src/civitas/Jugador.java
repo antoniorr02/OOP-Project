@@ -2,6 +2,7 @@
 package src.civitas;
 
 import java.util.ArrayList;
+import java.util.Properties;
 public class Jugador implements Comparable<Jugador> {
 
     static private int CasasMax = 4;
@@ -33,6 +34,18 @@ public class Jugador implements Comparable<Jugador> {
         saldo = j.getSaldo();
         propiedades = j.getPropiedades();
     }
+
+    Jugador convertir() {
+        JugadorEspeculador j_especulador = new JugadorEspeculador(this);
+        actualizaPropiedadesPorConversion(j_especulador);
+        return j_especulador;
+    }
+
+    void actualizaPropiedadesPorConversion(Jugador j_esp) {
+        for (int i = 0; i < propiedades.size(); i++) {
+            ((CasillaCalle) propiedades.get(i)).actualizaPropietarioPorConversion(j_esp);
+        }
+    }
     
 /////////////// GETTERS.
 
@@ -40,7 +53,7 @@ public class Jugador implements Comparable<Jugador> {
         return nombre;
     }
 
-    private static int getCasasMax() {
+    int getCasasMax() {
         return CasasMax;
     }
 
@@ -48,7 +61,7 @@ public class Jugador implements Comparable<Jugador> {
         return CasasPorHotel;
     }
     
-    private static int getHotelesMax() {
+    int getHotelesMax() {
         return HotelesMax;
     }
 

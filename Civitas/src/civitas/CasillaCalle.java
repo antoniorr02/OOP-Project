@@ -119,4 +119,8 @@ public class CasillaCalle extends Casilla{
         return cadena;
     } 
 
+    void actualizaPropietarioPorConversion(Jugador j_esp) {
+        propietario = j_esp;
+    }
+
 }
