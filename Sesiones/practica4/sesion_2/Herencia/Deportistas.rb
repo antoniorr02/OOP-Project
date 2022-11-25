@@ -3,13 +3,13 @@ module Herencia
     class Deportistas < Persona
 
         def initialize(nombre, horas)
-            @padre = super(nombre)
+            super(nombre)
             @horas_entrenamiento = horas
         end
 
         def competicion_deportiva(horas)
             @horas_entrenamiento = horas
-            result = "#{@padre.to_s} es deportista y entrena un total de #{@horas_entrenamiento} horas diarias"
+            result = "#{to_s} es deportista y entrena un total de #{@horas_entrenamiento} horas diarias"
             return result
         end
 
