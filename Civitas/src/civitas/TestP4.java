@@ -30,7 +30,7 @@ class TestP4 {
 
         s.aplicarAJugador(0, jugadores);
         System.out.println("\n" + jugadores.get(0).toString() + "\nAhora el numero máximo de casas y hoteles es: " + jugadores.get(0).getCasasMax());
-
-
+        // DUDA: Las casas de más construidas mientras era jugador especulador se quedan construidas??
+        
     }
 }
