@@ -39,7 +39,7 @@ public class Sorpresa {
         informe(actual, todos);
         int numCasasHoteles = 0;
         for (int i = 0; i < todos.get(actual).getPropiedades().size(); i++) {
-            numCasasHoteles += todos.get(actual).getPropiedades().get(i).cantidadCasasHoteles();
+            numCasasHoteles += ((CasillaCalle) todos.get(actual).getPropiedades().get(i)).cantidadCasasHoteles();
         }
         todos.get(actual).modificaSaldo(this.valor * numCasasHoteles);
     }

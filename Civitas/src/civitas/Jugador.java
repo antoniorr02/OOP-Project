@@ -128,11 +128,11 @@ public class Jugador implements Comparable<Jugador> {
         return true;
     }
 
-    private boolean puedoEdificarCasa(Casilla c) {
+    private boolean puedoEdificarCasa(CasillaCalle c) {
         return puedoGastar(c.getPrecioEdificar()) && c.getNumCasas() < getCasasMax();
     }
 
-    private boolean puedoEdificarHotel(Casilla c) {
+    private boolean puedoEdificarHotel(CasillaCalle c) {
         return puedoGastar(c.getPrecioEdificar()) && c.getNumHoteles() < getHotelesMax() && c.getNumCasas() >= getCasasPorHotel();
     }
 
@@ -141,7 +141,7 @@ public class Jugador implements Comparable<Jugador> {
         return -(int)(getSaldo() - o.getSaldo());
     } // Le he puesto el signo negativo, ya que si no me colocaba el primero en el ranking al jugador con menos dinero.
 
-    boolean comprar (Casilla casilla) {
+    boolean comprar (CasillaCalle casilla) {
         boolean result = false;
         if (puedeComprar) {
             float precio = casilla.getPrecioCompra();
@@ -160,7 +160,7 @@ public class Jugador implements Comparable<Jugador> {
     boolean construirCasa(int ip) {
         boolean result = false;
         if (existeLaPropiedad(ip)) {
-            Casilla propiedad = propiedades.get(ip);
+            CasillaCalle propiedad = ((CasillaCalle) propiedades.get(ip));
             boolean puedoEdificar = puedoEdificarCasa(propiedad);
             if(puedoEdificar) {
                 float precioEdificar = propiedad.getPrecioEdificar(); 
@@ -175,7 +175,7 @@ public class Jugador implements Comparable<Jugador> {
     boolean construirHotel(int ip) {
         boolean result = false;
         if (existeLaPropiedad(ip)) {
-            Casilla propiedad = propiedades.get(ip);
+            CasillaCalle propiedad = ((CasillaCalle) propiedades.get(ip));
             boolean puedoEdificarHotel = puedoEdificarHotel(propiedad);
             if(puedoEdificarHotel) {
                 float precioEdificar = propiedad.getPrecioEdificar(); 
