@@ -1,15 +1,18 @@
-require_relative "Deportistas"
-require_relative "Corredor_Nadador"
+require_relative "Deportista"
+require_relative "Corredor"
+require_relative "Nadador"
 
 module Herencia
 
-    deportista = Deportistas.new("Antonio", 0)
-    puts deportista.competicion_deportiva(5) + "\n\n"
+    deportista = Deportista.new("Antonio", 3)
+    puts deportista.to_s + "\n\n"
+    puts deportista.competicion_deportiva
 
-    corredor = Corredor_Nadador.new(deportista, "corredor")
-    puts corredor.competicion_deportiva_completa(7)
+    corredor = Corredor.new(deportista)
+    puts corredor.to_s
+    puts corredor.competicion_deportiva
 
-    corredor = Corredor_Nadador.new(deportista, "nadador")
-    puts corredor.competicion_deportiva_completa(7)
+    nadador = Nadador.new(deportista)
+    puts nadador.to_s
 
 end
