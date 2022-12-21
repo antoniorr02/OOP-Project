@@ -1,15 +1,21 @@
-package src;
+package principal;
 
+import GUI.Vista;
 import src.civitas.*;
 import src.controladorCivitas.Controlador;
 import src.vistaTextualCivitas.*;
+
+import java.util.ArrayList;
 /**
  *
  * @author antonio
  */
 public class JuegoTexto {
     public static void main(String[] args) {
-        String[] nombres= {"Antonio", "Pepe", "Juan"};
+        String nombre1 = "Antonio";
+        String nombre2 = "Pepe";
+        String nombre3 = "Juan";
+        ArrayList<String> nombres = new ArrayList<String>() {{ add(nombre1); add(nombre2); add(nombre3); }};
         CivitasJuego modelo = new CivitasJuego(nombres, false);
         Vista v = new VistaTextual(modelo);
         Controlador c = new Controlador(modelo, v);

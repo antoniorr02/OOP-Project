@@ -1,14 +1,9 @@
 package src.vistaTextualCivitas;
 
-import src.civitas.Casilla;
-import src.civitas.CivitasJuego;
-import src.civitas.Diario;
-import src.civitas.OperacionJuego;
+import GUI.Vista;
+import src.civitas.*;
 import src.controladorCivitas.Respuesta;
-import src.civitas.OperacionInmobiliaria;
-import src.civitas.Jugador;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
 
 
@@ -125,7 +120,7 @@ public class VistaTextual implements Vista {
 
   @Override
   public int elegirPropiedad() {
-    ArrayList<Casilla> propiedades =  new ArrayList<Casilla>();
+    ArrayList<CasillaCalle> propiedades =  new ArrayList<CasillaCalle>();
     propiedades = juegoModel.getJugadorActual().getPropiedades();
     ArrayList<String> propiedadesString = new ArrayList<String>();
     for (int i = 0; i < propiedades.size(); i++) {

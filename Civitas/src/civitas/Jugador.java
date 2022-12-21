@@ -2,7 +2,6 @@
 package src.civitas;
 
 import java.util.ArrayList;
-import java.util.Properties;
 public class Jugador implements Comparable<Jugador> {
 
     static private int CasasMax = 4;
@@ -13,9 +12,9 @@ public class Jugador implements Comparable<Jugador> {
 
     private int casillaActual;
     private String nombre;
-    private boolean puedeComprar;
+    private boolean puedeComprar, especulador;
     private float saldo;
-    private ArrayList<Casilla> propiedades;
+    private ArrayList<CasillaCalle> propiedades;
 
 /////////////// CONSTRUCTORS.
 
@@ -23,8 +22,9 @@ public class Jugador implements Comparable<Jugador> {
         casillaActual = 0;
         nombre = n;
         puedeComprar = true;
+        especulador = false;
         saldo = SaldoInicial;
-        propiedades = new ArrayList<Casilla>();
+        propiedades = new ArrayList<CasillaCalle>();
     }
 
     protected Jugador(Jugador j) {
@@ -38,6 +38,7 @@ public class Jugador implements Comparable<Jugador> {
     Jugador convertir() {
         JugadorEspeculador j_especulador = new JugadorEspeculador(this);
         actualizaPropiedadesPorConversion(j_especulador);
+        j_especulador.setEspeculador(true); // Ahora el jugador es especulador.
         return j_especulador;
     }
 
@@ -48,8 +49,11 @@ public class Jugador implements Comparable<Jugador> {
     }
     
 /////////////// GETTERS.
+    public boolean getEspeculador() {
+        return especulador;
+    }
 
-    protected String getNombre() {
+    public String getNombre() {
         return nombre;
     }
 
@@ -73,11 +77,11 @@ public class Jugador implements Comparable<Jugador> {
         return casillaActual;
     }
 
-    protected float getSaldo() {
+    public float getSaldo() {
         return saldo;
     }
 
-    public ArrayList<Casilla> getPropiedades() {
+    public ArrayList<CasillaCalle> getPropiedades() {
         return propiedades;
     }
 
@@ -86,6 +90,9 @@ public class Jugador implements Comparable<Jugador> {
     }
 
 /////////////// METHODS.
+    void setEspeculador(boolean esp) {
+        especulador = esp;
+    }
 
     boolean enBancaRota() {
         boolean bancarrota = false;

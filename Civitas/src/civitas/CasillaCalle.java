@@ -29,7 +29,7 @@ public class CasillaCalle extends Casilla{
 
 /////////////////////// GETTERS.
 
-    int getNumCasas() {
+    public int getNumCasas() {
         return numCasas;
     }
 
@@ -41,7 +41,7 @@ public class CasillaCalle extends Casilla{
         return precioEdificar;
     }
     
-    int getNumHoteles() {
+    public int getNumHoteles() {
         return numHoteles;
     }
     

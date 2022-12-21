@@ -28,6 +28,7 @@ class JugadorEspeculador extends Jugador {
     Jugador convertir() {
         Jugador j = new Jugador(this);
         actualizaPropiedadesPorConversion(j);
+        j.setEspeculador(false); // Ahora no es jugador especulador.
         return j;
     }
 

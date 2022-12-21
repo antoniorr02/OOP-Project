@@ -21,7 +21,7 @@ public class Dado {
         return instance;
     }
     
-    int tirar() {
+    public int tirar() {
         if (debug)
             ultimoResultado = 1;
         else
@@ -33,11 +33,11 @@ public class Dado {
         return random.nextInt((n-1)-0+1) + 0;
     }
 
-    void setDebug(boolean d) {
+    public void setDebug(boolean d) {
         debug = d;
     }
 
-    int getUltimoResultado() {
+    public int getUltimoResultado() {
         return ultimoResultado;
     }
 

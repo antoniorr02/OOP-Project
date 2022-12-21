@@ -11,11 +11,11 @@ public class CivitasJuego {
     private GestorEstados gestor;
     private EstadoJuego estado;
 
-    public CivitasJuego(String[] nombres, boolean debug) {
+    public CivitasJuego(ArrayList<String> nombres, boolean debug) {
         jugadores = new ArrayList<Jugador>();
-        if (nombres.length <= 4) {
-            for (int i = 0; i < nombres.length; i++) {
-                jugadores.add(new Jugador(nombres[i]));
+        if (nombres.size() <= 4) {
+            for (int i = 0; i < nombres.size(); i++) {
+                jugadores.add(new Jugador(nombres.get(i)));
             }
         } else {
             System.out.println("Numero de jugadores incorrecto");

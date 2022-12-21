@@ -1,5 +1,6 @@
 package src.controladorCivitas;
 
+import GUI.Vista;
 import src.civitas.CivitasJuego;
 import src.civitas.GestionInmobiliaria;
 import src.civitas.OperacionInmobiliaria;
