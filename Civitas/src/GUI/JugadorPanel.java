@@ -5,9 +5,7 @@
 package GUI;
 
 import java.util.ArrayList;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
-import src.civitas.*;
+import civitas.*;
 
 /**
  *
@@ -15,16 +13,13 @@ import src.civitas.*;
  */
 public class JugadorPanel extends javax.swing.JPanel {
     
-    Jugador jugador;
-
-    public JugadorPanel(Jugador jugador, JTextField especulador, JLabel jLabel1, JLabel jLabel2, JLabel jLabel3, JTextField nombre, JTextField saldo) {
-        this.jugador = jugador;
-        this.especulador = especulador;
-        this.jLabel1 = jLabel1;
-        this.jLabel2 = jLabel2;
-        this.jLabel3 = jLabel3;
-        this.nombre = nombre;
-        this.saldo = saldo;
+    private Jugador jugador;
+    
+    /**
+     * Creates new form JugadorPanel
+     */
+    public JugadorPanel() {
+        initComponents();
     }
 
     public void setJugador(Jugador j) {
@@ -54,14 +49,6 @@ public class JugadorPanel extends javax.swing.JPanel {
         // Se fuerza la actualización visual del panel propiedades y del panel del jugador
         repaint();
         revalidate();
-    }
-    
-
-    /**
-     * Creates new form JugadorPanel
-     */
-    public JugadorPanel() {
-        initComponents();
     }
 
     /**

@@ -4,7 +4,7 @@
  */
 package GUI;
 
-import src.civitas.*;
+import civitas.*;
 
 /**
  *

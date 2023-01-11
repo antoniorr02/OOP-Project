@@ -1,5 +1,5 @@
 
-package src.civitas;
+package civitas;
 
 import java.util.ArrayList;
 public class Jugador implements Comparable<Jugador> {
@@ -18,7 +18,7 @@ public class Jugador implements Comparable<Jugador> {
 
 /////////////// CONSTRUCTORS.
 
-    Jugador(String n) {
+    public Jugador(String n) {
         casillaActual = 0;
         nombre = n;
         puedeComprar = true;

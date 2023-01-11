@@ -1,8 +1,8 @@
-package src.vistaTextualCivitas;
+package vistaTextualCivitas;
 
 import GUI.Vista;
-import src.civitas.*;
-import src.controladorCivitas.Respuesta;
+import civitas.*;
+import controladorCivitas.Respuesta;
 import java.util.ArrayList;
 import java.util.Scanner;
 

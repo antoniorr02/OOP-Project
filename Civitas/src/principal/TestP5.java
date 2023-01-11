@@ -1,10 +1,11 @@
 package principal;
 
-import GUI.*;
-import src.civitas.*;
-import src.controladorCivitas.Controlador;
-
 import java.util.ArrayList;
+
+import GUI.CapturaNombres;
+import GUI.CivitasView;
+import civitas.CivitasJuego;
+import controladorCivitas.Controlador;
 /**
  *
  * @author antonio
@@ -14,7 +15,7 @@ public class TestP5 {
         CivitasView v = new CivitasView();
         CapturaNombres cap = new  CapturaNombres(v, true);
         ArrayList<String> nombres = cap.getNombres();
-        CivitasJuego modelo = new CivitasJuego(nombres, false);
+        CivitasJuego modelo = new CivitasJuego(nombres, true);
         Controlador c = new Controlador(modelo, v);
         v.setCivitasJuego(modelo);
         c.juega();

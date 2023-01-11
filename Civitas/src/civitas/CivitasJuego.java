@@ -1,7 +1,9 @@
-package src.civitas;
+package civitas;
+import GUI.VistaDado;
 
 import java.util.ArrayList;
 import java.util.Collections;
+
 
 public class CivitasJuego {
     private int indiceJugadorActual;
@@ -24,8 +26,8 @@ public class CivitasJuego {
 
         gestor = new GestorEstados();
         estado = gestor.estadoInicial();
-        Dado.getInstance().setDebug(debug);
-        indiceJugadorActual = Dado.getInstance().quienEmpieza(jugadores.size());
+        VistaDado.getInstance().setDebug(debug);
+        indiceJugadorActual = VistaDado.getInstance().quienEmpieza(jugadores.size());
         mazo = new MazoSorpresa(debug);
         inicializaMazoSorpresas();
         inicializaTablero(mazo);
@@ -118,7 +120,7 @@ public class CivitasJuego {
         return bancarrota;
     }
 
-    private ArrayList<Jugador> ranking() {
+    public ArrayList<Jugador> ranking() {
         ArrayList<Jugador> r = new ArrayList<Jugador>();
         for (int i = 0; i < jugadores.size(); i++) {
             r.add(jugadores.get(i));
@@ -135,11 +137,13 @@ public class CivitasJuego {
     private void avanzaJugador() {
         Jugador jugadorActual = getJugadorActual();
         int posicionActual = jugadorActual.getCasillaActual();
-        int tirada = Dado.getInstance().tirar();
+        tablero.getCasilla(posicionActual).saleJugador(); // Sale jugador de la casilla.
+        int tirada = VistaDado.getInstance().tirar();
         int posicionNueva = tablero.nuevaPosicion(posicionActual, tirada);
         Casilla casilla = tablero.getCasilla(posicionNueva);
         contabilizarPasosPorSalida();
         jugadorActual.moverACasilla(posicionNueva);
+        casilla.entraJugador(jugadores.get(indiceJugadorActual)); // Entra jugador a la casilla.
         casilla.recibeJugador(indiceJugadorActual, jugadores);
     }
 

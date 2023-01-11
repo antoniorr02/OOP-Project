@@ -6,9 +6,9 @@
 package GUI;
 
 
-import src.civitas.OperacionInmobiliaria;
-import src.civitas.OperacionJuego;
-import src.controladorCivitas.Respuesta;
+import civitas.OperacionInmobiliaria;
+import civitas.OperacionJuego;
+import controladorCivitas.Respuesta;
 
 public interface Vista {
 

@@ -30,11 +30,24 @@
                       <Component id="titulo" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
-                      <Component id="jugadorPanel1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="etiqSiguienteOperacion" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="sigOper" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="casillaPanel1" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="ranking" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="jugadorPanel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="16" max="32767" attributes="0"/>
+              <EmptySpace pref="267" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -45,7 +58,19 @@
               <Component id="titulo" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jugadorPanel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="218" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+              <Component id="casillaPanel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="etiqSiguienteOperacion" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="sigOper" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="ranking" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="263" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -55,6 +80,33 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Civitas"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="etiqSiguienteOperacion">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Siguiente Operaci&#xf3;n: "/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="sigOper">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+        <Property name="text" type="java.lang.String" value="operacion"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Ranking:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="ranking">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+        <Property name="text" type="java.lang.String" value="top"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rankingActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="GUI.CasillaPanel" name="casillaPanel1">
     </Component>
     <Component class="GUI.JugadorPanel" name="jugadorPanel1">
     </Component>

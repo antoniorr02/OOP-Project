@@ -1,11 +1,10 @@
-package src.controladorCivitas;
+package controladorCivitas;
 
 import GUI.Vista;
-import src.civitas.CivitasJuego;
-import src.civitas.GestionInmobiliaria;
-import src.civitas.OperacionInmobiliaria;
-import src.civitas.OperacionJuego;
-import src.vistaTextualCivitas.*;
+import civitas.CivitasJuego;
+import civitas.GestionInmobiliaria;
+import civitas.OperacionInmobiliaria;
+import civitas.OperacionJuego;
 
 public class Controlador {
     private CivitasJuego juego;

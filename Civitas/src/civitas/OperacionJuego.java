@@ -1,5 +1,5 @@
 
-package src.civitas;
+package civitas;
 
 public enum OperacionJuego {
   PASAR_TURNO,

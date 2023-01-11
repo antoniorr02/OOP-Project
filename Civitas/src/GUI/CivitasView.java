@@ -3,11 +3,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package GUI;
-import javax.swing.JOptionPane;
-import src.civitas.*;
-import src.controladorCivitas.*;
+import civitas.*;
+import controladorCivitas.*;
 
 import javax.swing.JOptionPane;
+import java.util.ArrayList;
 
 /**
  *
@@ -21,11 +21,18 @@ public class CivitasView extends javax.swing.JFrame implements Vista {
      */
     public CivitasView() {
         initComponents();
+        VistaDado.createInstance(this);
     }
     
     public void setCivitasJuego(CivitasJuego j) {
         juego = j;
         setVisible(true);
+    }
+    
+    @Override
+    public void mostrarSiguienteOperacion(OperacionJuego op) {
+        sigOper.setText(op.toString());
+        repaint();
     }
 
     /**
@@ -38,11 +45,31 @@ public class CivitasView extends javax.swing.JFrame implements Vista {
     private void initComponents() {
 
         titulo = new javax.swing.JLabel();
+        etiqSiguienteOperacion = new javax.swing.JLabel();
+        sigOper = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        ranking = new javax.swing.JTextField();
+        casillaPanel1 = new GUI.CasillaPanel();
         jugadorPanel1 = new GUI.JugadorPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         titulo.setText("Civitas");
+
+        etiqSiguienteOperacion.setText("Siguiente Operación: ");
+
+        sigOper.setEditable(false);
+        sigOper.setText("operacion");
+
+        jLabel1.setText("Ranking:");
+
+        ranking.setEditable(false);
+        ranking.setText("top");
+        ranking.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rankingActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -54,9 +81,19 @@ public class CivitasView extends javax.swing.JFrame implements Vista {
                         .addGap(212, 212, 212)
                         .addComponent(titulo))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addComponent(jugadorPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(16, Short.MAX_VALUE))
+                        .addGap(33, 33, 33)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(etiqSiguienteOperacion)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(sigOper, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(casillaPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(ranking, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jugadorPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(267, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -65,15 +102,48 @@ public class CivitasView extends javax.swing.JFrame implements Vista {
                 .addComponent(titulo)
                 .addGap(18, 18, 18)
                 .addComponent(jugadorPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(218, Short.MAX_VALUE))
+                .addGap(22, 22, 22)
+                .addComponent(casillaPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(etiqSiguienteOperacion)
+                    .addComponent(sigOper, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(ranking, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(263, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void rankingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rankingActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rankingActionPerformed
+
     
     public void actualiza() {
         jugadorPanel1.setJugador(juego.getJugadorActual());
+        casillaPanel1.setJugadoresCasilla(juego.getTablero().getCasilla((juego.getJugadorActual().getCasillaActual())));
+        //System.out.println(juego.getTablero().getCasilla((juego.getJugadorActual().getCasillaActual())).getJugadores().size());
+        if (juego.finalDelJuego()) {
+            ArrayList<Jugador> orden = juego.ranking();
+            String cadena;
+            cadena = ("El ranking final será:");
+            for (int j = 0; j < orden.size(); j++) {
+                int posicion = j + 1;
+                cadena += ("\n" + posicion + ". " + orden.get(j).getNombre() + " con saldo: " + orden.get(j).getSaldo());
+            }
+            ranking.setText(cadena);
+            jLabel1.setVisible(true);
+            ranking.setVisible(true);
+        } else {
+            jLabel1.setVisible(false);
+            ranking.setVisible(false);
+        }
+        repaint();
+        revalidate();
     }
 
     public void pausa() {
@@ -83,27 +153,34 @@ public class CivitasView extends javax.swing.JFrame implements Vista {
     }
 
     public Respuesta comprar() {
-        return null;
+        int opcion= 1-JOptionPane.showConfirmDialog(null, "¿Quieres comprar la calle actual?", "Compra", JOptionPane.YES_NO_OPTION);
+        return Respuesta.values()[opcion];    
     }
 
     public OperacionInmobiliaria elegirOperacion() {
-        return null;
+        GestionarDialog ges = new GestionarDialog(this, true);
+        return OperacionInmobiliaria.values()[ges.getGestion()];
     }
 
     public int elegirPropiedad() {
-        return 0;
-    }
-
-    public void mostrarSiguienteOperacion(OperacionJuego operación) {
-        
+        PropiedadDialog propiedad = new PropiedadDialog(juego.getJugadorActual(), this, true);
+        return propiedad.getGestion();
     }
 
     public void mostrarEventos() {
-        
+        DiarioDialog diarioD;
+        if (!Diario.getInstance().getEventos().isEmpty()) {
+            diarioD = new DiarioDialog(this,true); //crea la ventana del diario
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private GUI.CasillaPanel casillaPanel1;
+    private javax.swing.JLabel etiqSiguienteOperacion;
+    private javax.swing.JLabel jLabel1;
     private GUI.JugadorPanel jugadorPanel1;
+    private javax.swing.JTextField ranking;
+    private javax.swing.JTextField sigOper;
     private javax.swing.JLabel titulo;
     // End of variables declaration//GEN-END:variables
 }
